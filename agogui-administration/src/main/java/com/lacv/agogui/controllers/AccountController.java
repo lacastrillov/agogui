@@ -11,7 +11,7 @@ import com.lacv.jmagrexs.modules.security.entities.UserRole;
 import com.lacv.jmagrexs.modules.security.mappers.UserMapper;
 import com.lacv.jmagrexs.modules.security.mappers.UserRoleMapper;
 import com.lacv.jmagrexs.modules.security.services.UserRoleService;
-import com.lacv.jmagrexs.modules.security.services.SecurityService;
+import com.lacv.jmagrexs.modules.security.services.bussiness.SecurityService;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
