@@ -20,6 +20,7 @@
     
     <import resource="mail-velocity-config.xml"/>
     
+    <!-- Scans the classpath of this application for @Components to deploy as beans -->
     <context:component-scan base-package="com.lacv.jmagrexs.service.gcp" />
     <context:component-scan base-package="com.lacv.jmagrexs.components" />
     <bean id="serverDomain" class="com.lacv.jmagrexs.components.ServerDomain">
@@ -45,7 +46,6 @@
     <context:component-scan base-package="com.lacv.jmagrexs.modules.security">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
     <context:component-scan base-package="com.lacv.agogui.daos" />
     <context:component-scan base-package="com.lacv.agogui.services" />
