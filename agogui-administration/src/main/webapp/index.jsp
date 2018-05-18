@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Mercando :: Administraci&oacute;n</title>
+        <title>Agogui :: Administraci&oacute;n</title>
     </head>
     <body>
-        <h1>Mercando :: Administraci&oacute;n ...</h1>
+        <h1>Agogui :: Administraci&oacute;n ...</h1>
     </body>
 </html>

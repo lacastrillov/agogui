@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Mercando :: Servicios REST</title>
+        <title>Agogui :: Servicios REST</title>
     </head>
     <body>
-        <h1>Mercando :: Servicios REST ...</h1>
+        <h1>Agogui :: Servicios REST ...</h1>
     </body>
 </html>
