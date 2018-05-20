@@ -13,9 +13,6 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
-import java.util.List;
 
 /**
  *
@@ -27,9 +24,11 @@ public class NotaFinalDto implements BaseEntity {
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @ColumnWidth(200)
-    @TextField("Asignatura")
-    private AsignaturaDto asignatura;
+    @NotNull
+    @ReadOnly
+    @ColumnWidth(100)
+    @TextField("Id")
+    private Integer id;
     
     @Order(2)
     @ColumnWidth(200)
@@ -37,10 +36,9 @@ public class NotaFinalDto implements BaseEntity {
     private CursoDto curso;
     
     @Order(3)
-    @Size(max=65535)
     @ColumnWidth(200)
-    @TextField("Desempenio")
-    private String desempenio;
+    @TextField("Asignatura")
+    private AsignaturaDto asignatura;
     
     @Order(4)
     @ColumnWidth(200)
@@ -48,28 +46,27 @@ public class NotaFinalDto implements BaseEntity {
     private EstudianteDto estudiante;
     
     @Order(5)
-    @Size(max=1)
+    @Size(max=65535)
     @ColumnWidth(200)
-    @TextField("Formato")
-    private String formato;
+    @TextField("Desempe&ntilde;o")
+    private String desempenio;
     
     @Order(6)
-    @NotNull
-    @ReadOnly
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
-    
-    @Order(7)
     @ColumnWidth(200)
-    @TextField("NotaNumero")
+    @TextField("Nota Numero")
     private Double notaNumero;
     
-    @Order(8)
+    @Order(7)
     @Size(max=10)
     @ColumnWidth(200)
     @TextField("NotaTexto")
     private String notaTexto;
+    
+    @Order(8)
+    @Size(max=1)
+    @ColumnWidth(200)
+    @TextField("Formato")
+    private String formato;
     
 
     public NotaFinalDto() {

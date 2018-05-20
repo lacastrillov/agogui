@@ -21,6 +21,12 @@ import org.springframework.stereotype.Component;
 public class DocenteMapper extends EntityMapperImpl<Docente, DocenteDto> implements EntityMapper<Docente, DocenteDto> {
     
     @Autowired
+    PaisMapper paisMapper;
+    
+    @Autowired
+    DepartamentoMapper departamentoMapper;
+    
+    @Autowired
     CiudadOMunicipioMapper ciudadOMunicipioMapper;
     
     @Autowired
@@ -32,6 +38,8 @@ public class DocenteMapper extends EntityMapperImpl<Docente, DocenteDto> impleme
         DocenteDto dto= new DocenteDto();
         if(entity!=null){
             dto.setBarrio(entity.getBarrio());
+            dto.setPais(paisMapper.entityToDto(entity.getPais()));
+            dto.setDepartamento(departamentoMapper.entityToDto(entity.getDepartamento()));
             dto.setCiudadOMunicipio(ciudadOMunicipioMapper.entityToDto(entity.getCiudadOMunicipio()));
             dto.setCorreoElectronico(entity.getCorreoElectronico());
             dto.setDireccion(entity.getDireccion());
@@ -42,7 +50,6 @@ public class DocenteMapper extends EntityMapperImpl<Docente, DocenteDto> impleme
             dto.setFechaRegistro(entity.getFechaRegistro());
             dto.setFoto(entity.getFoto());
             dto.setId(entity.getId());
-            dto.setNacionalidad(entity.getNacionalidad());
             dto.setNombre(entity.getNombre());
             dto.setPrimerApellido(entity.getPrimerApellido());
             dto.setSede(sedeMapper.entityToDto(entity.getSede()));

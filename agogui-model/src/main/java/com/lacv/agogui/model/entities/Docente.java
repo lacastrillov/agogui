@@ -77,9 +77,6 @@ public class Docente implements BaseEntity {
     @Size(max = 100)
     @Column(name = "foto")
     private String foto;
-    @Size(max = 50)
-    @Column(name = "nacionalidad")
-    private String nacionalidad;
     @Size(max = 100)
     @Column(name = "barrio")
     private String barrio;
@@ -98,12 +95,18 @@ public class Docente implements BaseEntity {
     @Column(name = "tipo_acceso")
     private Integer tipoAcceso;
     @Column(name = "estado")
-    private Boolean estado;
+    private String estado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "docente")
     private List<DocenteasignaturaCurso> docenteasignaturaCursoList;
     @JoinColumn(name = "id_sede", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Sede sede;
+    @JoinColumn(name = "id_pais", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Pais pais;
+    @JoinColumn(name = "id_departamento", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Departamento departamento;
     @JoinColumn(name = "id_ciudad_o_municipio", referencedColumnName = "id")
     @ManyToOne
     private CiudadOMunicipio ciudadOMunicipio;
@@ -217,14 +220,6 @@ public class Docente implements BaseEntity {
         this.foto = foto;
     }
 
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-
     public String getBarrio() {
         return barrio;
     }
@@ -273,11 +268,11 @@ public class Docente implements BaseEntity {
         this.tipoAcceso = tipoAcceso;
     }
 
-    public Boolean getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
@@ -295,6 +290,22 @@ public class Docente implements BaseEntity {
 
     public void setSede(Sede sede) {
         this.sede = sede;
+    }
+    
+    public Pais getPais() {
+        return pais;
+    }
+
+    public void setPais(Pais pais) {
+        this.pais = pais;
+    }
+    
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
 
     public CiudadOMunicipio getCiudadOMunicipio() {

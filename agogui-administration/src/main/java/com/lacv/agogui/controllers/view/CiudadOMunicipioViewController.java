@@ -40,16 +40,18 @@ public class CiudadOMunicipioViewController extends ExtEntityController {
     @PostConstruct
     public void init(){
         EntityConfig view= new EntityConfig("ciudadOMunicipio", ciudadOMunicipioService, CiudadOMunicipioDto.class);
-        view.setSingularEntityTitle("CiudadOMunicipio");
-        view.setPluralEntityTitle("CiudadOMunicipios");
+        view.setSingularEntityTitle("Ciudad o Municipio");
+        view.setPluralEntityTitle("Ciudades o Municipios");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("nombre", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("ciudadOMunicipio", "Gestionar CiudadOMunicipios", 1);
-        menuParent.addSubMenu(menuItem);
+        MenuItem menuParent= new MenuItem("Sistema");
+        MenuItem menuParent1= new MenuItem("Ubicaci&oacute;n", 5);
+        MenuItem menuItem= new MenuItem("ciudadOMunicipio", "Gestionar Ciudades o Municipios", 3);
+        menuParent1.addSubMenu(menuItem);
+        menuParent.addSubMenu(menuParent1);
         menuComponent.addItemMenu(menuParent);
     }
     

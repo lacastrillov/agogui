@@ -44,11 +44,11 @@ public class AsignaturaViewController extends ExtEntityController {
         view.setPluralEntityTitle("Asignaturas");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("nombre", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("asignatura", "Gestionar Asignaturas", 1);
+        MenuItem menuParent= new MenuItem("Asignaturas", 3);
+        MenuItem menuItem= new MenuItem("asignatura", "Gestionar Asignaturas", 2);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

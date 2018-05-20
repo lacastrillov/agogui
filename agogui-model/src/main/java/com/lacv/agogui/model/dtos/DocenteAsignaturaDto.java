@@ -12,10 +12,9 @@ import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
+import com.lacv.jmagrexs.annotation.TypeFormField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
-import java.util.List;
+import com.lacv.jmagrexs.enums.FieldType;
 
 /**
  *
@@ -27,9 +26,11 @@ public class DocenteAsignaturaDto implements BaseEntity {
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @ColumnWidth(200)
-    @TextField("Asignatura")
-    private AsignaturaDto asignatura;
+    @NotNull
+    @ReadOnly
+    @ColumnWidth(100)
+    @TextField("Id")
+    private Integer id;
     
     @Order(2)
     @ColumnWidth(200)
@@ -37,17 +38,16 @@ public class DocenteAsignaturaDto implements BaseEntity {
     private DocenteDto docente;
     
     @Order(3)
+    @ColumnWidth(200)
+    @TextField("Asignatura")
+    private AsignaturaDto asignatura;
+    
+    @Order(4)
     @Size(max=1)
     @ColumnWidth(200)
     @TextField("Habilitado")
+    @TypeFormField(value = FieldType.MULTI_SELECT, data = {"S", "N"})
     private String habilitado;
-    
-    @Order(4)
-    @NotNull
-    @ReadOnly
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
     
 
     public DocenteAsignaturaDto() {

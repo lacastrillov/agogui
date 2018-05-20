@@ -44,10 +44,10 @@ public class EstudianteViewController extends ExtEntityController {
         view.setPluralEntityTitle("Estudiantes");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("nombre", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
+        MenuItem menuParent= new MenuItem("Estudiantes", 5);
         MenuItem menuItem= new MenuItem("estudiante", "Gestionar Estudiantes", 1);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);

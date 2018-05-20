@@ -13,15 +13,13 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("titulo")
 public class CompetenciaDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
@@ -32,14 +30,14 @@ public class CompetenciaDto implements BaseEntity {
     @TextField("Id")
     private Integer id;
     
-    private List<LogroDto> logroList;
-    
     @Order(2)
     @NotNull
     @Size(min=1,max=50)
     @ColumnWidth(200)
     @TextField("Titulo")
     private String titulo;
+    
+    private List<LogroDto> logroList;
     
 
     public CompetenciaDto() {

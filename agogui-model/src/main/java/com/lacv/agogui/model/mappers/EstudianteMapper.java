@@ -21,10 +21,16 @@ import org.springframework.stereotype.Component;
 public class EstudianteMapper extends EntityMapperImpl<Estudiante, EstudianteDto> implements EntityMapper<Estudiante, EstudianteDto> {
     
     @Autowired
+    PaisMapper paisMapper;
+    
+    @Autowired
+    DepartamentoMapper departamentoMapper;
+    
+    @Autowired
     CiudadOMunicipioMapper ciudadOMunicipioMapper;
     
     @Autowired
-    JornadaMapper jornadaMapper;
+    SedeMapper sedeMapper;
 
     
     @Override
@@ -32,6 +38,8 @@ public class EstudianteMapper extends EntityMapperImpl<Estudiante, EstudianteDto
         EstudianteDto dto= new EstudianteDto();
         if(entity!=null){
             dto.setBarrio(entity.getBarrio());
+            dto.setPais(paisMapper.entityToDto(entity.getPais()));
+            dto.setDepartamento(departamentoMapper.entityToDto(entity.getDepartamento()));
             dto.setCiudadOMunicipio(ciudadOMunicipioMapper.entityToDto(entity.getCiudadOMunicipio()));
             dto.setCorreoElectronico(entity.getCorreoElectronico());
             dto.setDireccion(entity.getDireccion());
@@ -41,8 +49,7 @@ public class EstudianteMapper extends EntityMapperImpl<Estudiante, EstudianteDto
             dto.setFechaRegistro(entity.getFechaRegistro());
             dto.setFoto(entity.getFoto());
             dto.setId(entity.getId());
-            dto.setJornada(jornadaMapper.entityToDto(entity.getJornada()));
-            dto.setNacionalidad(entity.getNacionalidad());
+            dto.setSede(sedeMapper.entityToDto(entity.getSede()));
             dto.setNombre(entity.getNombre());
             dto.setPrimerApellido(entity.getPrimerApellido());
             dto.setSegundoApellido(entity.getSegundoApellido());

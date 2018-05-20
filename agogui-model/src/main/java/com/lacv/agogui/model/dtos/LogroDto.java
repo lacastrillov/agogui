@@ -9,13 +9,9 @@ import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
 import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
-import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
-import java.util.List;
 
 /**
  *
@@ -27,9 +23,10 @@ public class LogroDto implements BaseEntity {
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @ColumnWidth(200)
-    @TextField("Competencia")
-    private CompetenciaDto competencia;
+    @NotNull
+    @ColumnWidth(100)
+    @TextField("C&oacute;digo")
+    private Integer id;
     
     @Order(2)
     @NotNull
@@ -39,20 +36,19 @@ public class LogroDto implements BaseEntity {
     private String descripcion;
     
     @Order(3)
-    @NotNull
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
+    @ColumnWidth(200)
+    @TextField("Competencia")
+    private CompetenciaDto competencia;
     
     @Order(4)
     @ColumnWidth(200)
-    @TextField("Periodo")
-    private PeriodoDto periodo;
+    @TextField("Tema")
+    private TemaDto tema;
     
     @Order(5)
     @ColumnWidth(200)
-    @TextField("Tema")
-    private TemaDto tema;
+    @TextField("Periodo")
+    private PeriodoDto periodo;
     
 
     public LogroDto() {

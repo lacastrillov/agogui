@@ -40,15 +40,15 @@ public class NotaFinalViewController extends ExtEntityController {
     @PostConstruct
     public void init(){
         EntityConfig view= new EntityConfig("notaFinal", notaFinalService, NotaFinalDto.class);
-        view.setSingularEntityTitle("NotaFinal");
-        view.setPluralEntityTitle("NotaFinals");
+        view.setSingularEntityTitle("Nota Final");
+        view.setPluralEntityTitle("Notas Finales");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
         view.setDefaultOrder("id", "DESC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("notaFinal", "Gestionar NotaFinals", 1);
+        MenuItem menuParent= new MenuItem("Estudiantes");
+        MenuItem menuItem= new MenuItem("notaFinal", "Gestionar Notas Finales", 5);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

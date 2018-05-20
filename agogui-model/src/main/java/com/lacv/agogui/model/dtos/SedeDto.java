@@ -13,64 +13,73 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class SedeDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @Size(max=60)
-    @ColumnWidth(200)
-    @TextField("CorreoElectronico")
-    private String correoElectronico;
-    
-    @Order(2)
-    @Size(max=150)
-    @ColumnWidth(200)
-    @TextField("Direccion")
-    private String direccion;
-    
-    private List<DocenteDto> docenteList;
-    
-    @Order(3)
     @NotNull
     @ReadOnly
     @ColumnWidth(100)
     @TextField("Id")
     private Integer id;
     
-    @Order(4)
-    @ColumnWidth(200)
-    @TextField("Institucion")
-    private InstitucionDto institucion;
-    
-    private List<JornadaDto> jornadaList;
-    
-    @Order(5)
+    @Order(2)
     @NotNull
     @Size(min=1,max=150)
     @ColumnWidth(200)
     @TextField("Nombre")
     private String nombre;
     
-    @Order(6)
+    @Order(3)
+    @Size(max=150)
+    @ColumnWidth(200)
+    @TextField("Direcci&oacute;n")
+    private String direccion;
+    
+    @Order(4)
+    @Size(max=60)
+    @ColumnWidth(200)
+    @TextField("Correo Electr&oacute;nico")
+    private String correoElectronico;
+    
+    @Order(5)
     @Size(max=50)
     @ColumnWidth(200)
-    @TextField("Telefono")
+    @TextField("Tel&eacute;fono")
     private String telefono;
     
+    @Order(6)
+    @ColumnWidth(200)
+    @TextField("Instituci&oacute;n")
+    private InstitucionDto institucion;
+    
+    private List<DocenteDto> docenteList;
+    
+    private List<EstudianteDto> estudianteList;
+    
+    private List<CursoDto> cursoList;
 
     public SedeDto() {
     }
 
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Object id) {
+        this.id = (Integer) id;
+    }
+    
     public String getCorreoElectronico() {
         return correoElectronico;
     }
@@ -87,38 +96,12 @@ public class SedeDto implements BaseEntity {
         this.direccion =  direccion;
     }
 
-    public List<DocenteDto> getDocenteList() {
-        return docenteList;
-    }
-
-    public void setDocenteList(List<DocenteDto> docenteList) {
-        this.docenteList =  docenteList;
-    }
-
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Object id) {
-        this.id = (Integer) id;
-    }
-
     public InstitucionDto getInstitucion() {
         return institucion;
     }
 
     public void setInstitucion(InstitucionDto institucion) {
         this.institucion =  institucion;
-    }
-
-    public List<JornadaDto> getJornadaList() {
-        return jornadaList;
-    }
-
-    public void setJornadaList(List<JornadaDto> jornadaList) {
-        this.jornadaList =  jornadaList;
     }
 
     public String getNombre() {
@@ -135,6 +118,30 @@ public class SedeDto implements BaseEntity {
 
     public void setTelefono(String telefono) {
         this.telefono =  telefono;
+    }
+    
+    public List<DocenteDto> getDocenteList() {
+        return docenteList;
+    }
+
+    public void setDocenteList(List<DocenteDto> docenteList) {
+        this.docenteList =  docenteList;
+    }
+    
+    public List<EstudianteDto> getEstudianteList() {
+        return estudianteList;
+    }
+
+    public void setEstudianteList(List<EstudianteDto> estudianteList) {
+        this.estudianteList =  estudianteList;
+    }
+    
+    public List<CursoDto> getCursoList() {
+        return cursoList;
+    }
+
+    public void setCursoList(List<CursoDto> cursoList) {
+        this.cursoList = cursoList;
     }
 
     @Override

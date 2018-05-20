@@ -13,15 +13,13 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class PaisDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;

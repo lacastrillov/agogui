@@ -13,22 +13,16 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class JornadaDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
-    
-    private List<CursoDto> cursoList;
-    
-    private List<EstudianteDto> estudianteList;
     
     @Order(1)
     @NotNull
@@ -45,27 +39,13 @@ public class JornadaDto implements BaseEntity {
     
     @Order(3)
     @ColumnWidth(200)
-    @TextField("Sede")
-    private SedeDto sede;
+    @TextField("Instituci&oacute;n")
+    private InstitucionDto institucion;
+    
+    private List<CursoDto> cursoList;
     
 
     public JornadaDto() {
-    }
-
-    public List<CursoDto> getCursoList() {
-        return cursoList;
-    }
-
-    public void setCursoList(List<CursoDto> cursoList) {
-        this.cursoList =  cursoList;
-    }
-
-    public List<EstudianteDto> getEstudianteList() {
-        return estudianteList;
-    }
-
-    public void setEstudianteList(List<EstudianteDto> estudianteList) {
-        this.estudianteList =  estudianteList;
     }
 
     @Override
@@ -86,12 +66,20 @@ public class JornadaDto implements BaseEntity {
         this.nombre =  nombre;
     }
 
-    public SedeDto getSede() {
-        return sede;
+    public InstitucionDto getInstitucion() {
+        return institucion;
     }
 
-    public void setSede(SedeDto sede) {
-        this.sede =  sede;
+    public void setInstitucion(InstitucionDto institucion) {
+        this.institucion =  institucion;
+    }
+    
+    public List<CursoDto> getCursoList() {
+        return cursoList;
+    }
+
+    public void setCursoList(List<CursoDto> cursoList) {
+        this.cursoList =  cursoList;
     }
 
     @Override

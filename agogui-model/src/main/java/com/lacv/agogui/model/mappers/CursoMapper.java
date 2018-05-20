@@ -25,6 +25,9 @@ public class CursoMapper extends EntityMapperImpl<Curso, CursoDto> implements En
     
     @Autowired
     JornadaMapper jornadaMapper;
+    
+    @Autowired
+    SedeMapper sedeMapper;
 
     
     @Override
@@ -37,6 +40,7 @@ public class CursoMapper extends EntityMapperImpl<Curso, CursoDto> implements En
             dto.setGrado(gradoMapper.entityToDto(entity.getGrado()));
             dto.setId(entity.getId());
             dto.setJornada(jornadaMapper.entityToDto(entity.getJornada()));
+            dto.setSede(sedeMapper.entityToDto(entity.getSede()));
             dto.setNombre(entity.getNombre());
         }
         return dto;

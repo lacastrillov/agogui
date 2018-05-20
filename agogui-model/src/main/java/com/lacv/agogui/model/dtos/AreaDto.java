@@ -13,45 +13,43 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class AreaDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
-    private List<AsignaturaDto> asignaturaList;
-    
     @Order(1)
-    @Size(max=65535)
-    @ColumnWidth(200)
-    @TextField("Descripcion")
-    private String descripcion;
-    
-    @Order(2)
     @NotNull
     @ReadOnly
     @ColumnWidth(100)
     @TextField("Id")
     private Integer id;
     
-    @Order(3)
-    @ColumnWidth(200)
-    @TextField("Institucion")
-    private InstitucionDto institucion;
-    
-    @Order(4)
+    @Order(2)
     @NotNull
     @Size(min=1,max=45)
     @ColumnWidth(200)
     @TextField("Nombre")
     private String nombre;
+    
+    @Order(3)
+    @Size(max=65535)
+    @ColumnWidth(200)
+    @TextField("Descripci&oacute;n")
+    private String descripcion;
+    
+    @Order(4)
+    @ColumnWidth(200)
+    @TextField("Instituci&oacute;n")
+    private InstitucionDto institucion;
+    
+    private List<AsignaturaDto> asignaturaList;
     
 
     public AreaDto() {

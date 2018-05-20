@@ -9,24 +9,33 @@ import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
 import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
-import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class AsignaturaDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
     @Order(1)
+    @NotNull
+    @ColumnWidth(100)
+    @TextField("C&oacute;digo")
+    private Integer id;
+    
+    @Order(2)
+    @Size(max=100)
+    @ColumnWidth(200)
+    @TextField("Nombre")
+    private String nombre;
+    
+    @Order(3)
     @ColumnWidth(200)
     @TextField("Area")
     private AreaDto area;
@@ -36,18 +45,6 @@ public class AsignaturaDto implements BaseEntity {
     private List<DocenteasignaturaCursoDto> docenteasignaturaCursoList;
     
     private List<EvaluacionDto> evaluacionList;
-    
-    @Order(2)
-    @NotNull
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
-    
-    @Order(3)
-    @Size(max=100)
-    @ColumnWidth(200)
-    @TextField("Nombre")
-    private String nombre;
     
     private List<NotaEvaluacionDto> notaEvaluacionList;
     

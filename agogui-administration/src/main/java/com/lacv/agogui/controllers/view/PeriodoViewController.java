@@ -44,11 +44,11 @@ public class PeriodoViewController extends ExtEntityController {
         view.setPluralEntityTitle("Periodos");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("numero", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("periodo", "Gestionar Periodos", 1);
+        MenuItem menuParent= new MenuItem("Instituci&oacute;n");
+        MenuItem menuItem= new MenuItem("periodo", "Gestionar Periodos", 5);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

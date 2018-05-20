@@ -13,46 +13,42 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("alias")
 public class GradoDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
     @Order(1)
+    @ReadOnly
+    @ColumnWidth(100)
+    @TextField("Id")
+    private Integer id;
+    
+    @Order(2)
+    @NotNull
+    @ColumnWidth(200)
+    @TextField("N&uacute;mero")
+    private int numero;
+    
+    @Order(3)
     @NotNull
     @Size(min=1,max=45)
     @ColumnWidth(200)
     @TextField("Alias")
     private String alias;
     
-    private List<CursoDto> cursoList;
-    
-    @Order(2)
-    @ReadOnly
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
-    
-    @Order(3)
+    @Order(4)
     @ColumnWidth(200)
-    @TextField("Institucion")
+    @TextField("Instituci&oacute;n")
     private InstitucionDto institucion;
     
-    @Order(4)
-    @NotNull
-    @ColumnWidth(200)
-    @TextField("Numero")
-    private int numero;
-    
-    private List<PeriodoDto> periodoList;
+    private List<CursoDto> cursoList;
     
 
     public GradoDto() {
@@ -98,14 +94,6 @@ public class GradoDto implements BaseEntity {
 
     public void setNumero(int numero) {
         this.numero =  numero;
-    }
-
-    public List<PeriodoDto> getPeriodoList() {
-        return periodoList;
-    }
-
-    public void setPeriodoList(List<PeriodoDto> periodoList) {
-        this.periodoList =  periodoList;
     }
 
     @Override

@@ -44,12 +44,14 @@ public class DepartamentoViewController extends ExtEntityController {
         view.setPluralEntityTitle("Departamentos");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("nombre", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("departamento", "Gestionar Departamentos", 1);
-        menuParent.addSubMenu(menuItem);
+        MenuItem menuParent= new MenuItem("Sistema");
+        MenuItem menuParent1= new MenuItem("Ubicaci&oacute;n");
+        MenuItem menuItem= new MenuItem("departamento", "Gestionar Departamentos", 2);
+        menuParent1.addSubMenu(menuItem);
+        menuParent.addSubMenu(menuParent1);
         menuComponent.addItemMenu(menuParent);
     }
     

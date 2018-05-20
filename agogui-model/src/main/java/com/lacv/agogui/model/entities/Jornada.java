@@ -43,11 +43,9 @@ public class Jornada implements BaseEntity {
     @Size(max = 60)
     @Column(name = "nombre")
     private String nombre;
-    @OneToMany(mappedBy = "jornada")
-    private List<Estudiante> estudianteList;
-    @JoinColumn(name = "id_sede", referencedColumnName = "id")
+    @JoinColumn(name = "codigo_institucion", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
-    private Sede sede;
+    private Institucion institucion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "jornada")
     private List<Curso> cursoList;
 
@@ -76,20 +74,12 @@ public class Jornada implements BaseEntity {
         this.nombre = nombre;
     }
 
-    public List<Estudiante> getEstudianteList() {
-        return estudianteList;
+    public Institucion getInstitucion() {
+        return institucion;
     }
 
-    public void setEstudianteList(List<Estudiante> estudianteList) {
-        this.estudianteList = estudianteList;
-    }
-
-    public Sede getSede() {
-        return sede;
-    }
-
-    public void setSede(Sede sede) {
-        this.sede = sede;
+    public void setInstitucion(Institucion institucion) {
+        this.institucion = institucion;
     }
 
     public List<Curso> getCursoList() {

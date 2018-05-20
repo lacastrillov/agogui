@@ -56,6 +56,15 @@ public class Curso implements BaseEntity {
     private int anioLectivo;
     @Column(name = "activo")
     private Boolean activo;
+    @JoinColumn(name = "id_grado", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Grado grado;
+    @JoinColumn(name = "id_jornada", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Jornada jornada;
+    @JoinColumn(name = "id_sede", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Sede sede;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
     private List<DocenteasignaturaCurso> docenteasignaturaCursoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
@@ -64,12 +73,6 @@ public class Curso implements BaseEntity {
     private List<NotaFinal> notaFinalList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
     private List<NotaPeriodo> notaPeriodoList;
-    @JoinColumn(name = "id_grado", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Grado grado;
-    @JoinColumn(name = "id_jornada", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Jornada jornada;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
     private List<NotaEvaluacion> notaEvaluacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
@@ -130,6 +133,30 @@ public class Curso implements BaseEntity {
         this.activo = activo;
     }
 
+    public Grado getGrado() {
+        return grado;
+    }
+
+    public void setGrado(Grado grado) {
+        this.grado = grado;
+    }
+
+    public Jornada getJornada() {
+        return jornada;
+    }
+
+    public void setJornada(Jornada jornada) {
+        this.jornada = jornada;
+    }
+    
+    public Sede getSede() {
+        return sede;
+    }
+
+    public void setSede(Sede sede) {
+        this.sede = sede;
+    }
+    
     public List<DocenteasignaturaCurso> getDocenteasignaturaCursoList() {
         return docenteasignaturaCursoList;
     }
@@ -160,22 +187,6 @@ public class Curso implements BaseEntity {
 
     public void setNotaPeriodoList(List<NotaPeriodo> notaPeriodoList) {
         this.notaPeriodoList = notaPeriodoList;
-    }
-
-    public Grado getGrado() {
-        return grado;
-    }
-
-    public void setGrado(Grado grado) {
-        this.grado = grado;
-    }
-
-    public Jornada getJornada() {
-        return jornada;
-    }
-
-    public void setJornada(Jornada jornada) {
-        this.jornada = jornada;
     }
 
     public List<NotaEvaluacion> getNotaEvaluacionList() {

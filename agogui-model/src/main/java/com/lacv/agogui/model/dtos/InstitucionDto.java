@@ -9,11 +9,11 @@ import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
 import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
-import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
+import com.lacv.jmagrexs.annotation.TypeFormField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
+import com.lacv.jmagrexs.enums.FieldType;
 import java.util.Date;
 import java.util.List;
 
@@ -21,71 +21,86 @@ import java.util.List;
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class InstitucionDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
-    private List<AreaDto> areaList;
-    
     @Order(1)
-    @ColumnWidth(200)
-    @TextField("CiudadOMunicipio")
-    private CiudadOMunicipioDto ciudadOMunicipio;
-    
-    @Order(2)
-    @Size(max=60)
-    @ColumnWidth(200)
-    @TextField("CorreoElectronico")
-    private String correoElectronico;
-    
-    @Order(3)
-    @Size(max=20)
-    @ColumnWidth(200)
-    @TextField("Estado")
-    private String estado;
-    
-    @Order(4)
-    @ColumnWidth(200)
-    @TextField("FechaCreacion")
-    private Date fechaCreacion;
-    
-    private List<GradoDto> gradoList;
-    
-    @Order(5)
     @NotNull
     @ColumnWidth(100)
-    @TextField("Id")
+    @TextField("C&oacute;digo")
     private Integer id;
     
-    @Order(6)
-    @NotNull
-    @Size(min=1,max=1)
-    @ColumnWidth(200)
-    @TextField("Nivel")
-    private String nivel;
-    
-    @Order(7)
+    @Order(2)
     @NotNull
     @Size(min=1,max=150)
     @ColumnWidth(200)
     @TextField("Nombre")
     private String nombre;
     
-    @Order(8)
+    @Order(3)
     @NotNull
     @Size(min=1,max=1)
     @ColumnWidth(200)
-    @TextField("RazonSocial")
+    @TextField("Nivel")
+    private String nivel;
+    
+    @Order(4)
+    @NotNull
+    @Size(min=1,max=1)
+    @ColumnWidth(200)
+    @TextField("Razon Social")
     private String razonSocial;
+    
+    @Order(5)
+    @ColumnWidth(200)
+    @TextField("Fecha Creaci&oacute;n")
+    private Date fechaCreacion;
+    
+    @Order(6)
+    @Size(max=60)
+    @ColumnWidth(200)
+    @TextField("Correo Electr&oacute;nico")
+    private String correoElectronico;
+    
+    @Order(7)
+    @Size(max=50)
+    @ColumnWidth(200)
+    @TextField("Tel&eacute;fono")
+    private String telefono;
+    
+    @Order(8)
+    @ColumnWidth(200)
+    @TextField("Pais")
+    private PaisDto pais;
+    
+    @Order(9)
+    @ColumnWidth(200)
+    @TextField("Departamento")
+    private DepartamentoDto departamento;
+    
+    @Order(10)
+    @ColumnWidth(200)
+    @TextField("Ciudad o Municipio")
+    private CiudadOMunicipioDto ciudadOMunicipio;
+    
+    @Order(11)
+    @Size(max=20)
+    @ColumnWidth(200)
+    @TextField("Estado")
+    @TypeFormField(value = FieldType.MULTI_SELECT, data = {"Active", "Inactive", "Locked", "Deleted"})
+    private String estado;
+    
+    private List<GradoDto> gradoList;
+    
+    private List<AreaDto> areaList;
     
     private List<SedeDto> sedeList;
     
-    @Order(9)
-    @Size(max=50)
-    @ColumnWidth(200)
-    @TextField("Telefono")
-    private String telefono;
+    private List<PeriodoDto> periodoList;
+    
+    private List<JornadaDto> jornadaList;
     
 
     public InstitucionDto() {
@@ -97,6 +112,22 @@ public class InstitucionDto implements BaseEntity {
 
     public void setAreaList(List<AreaDto> areaList) {
         this.areaList =  areaList;
+    }
+    
+    public PaisDto getPais() {
+        return pais;
+    }
+
+    public void setPais(PaisDto pais) {
+        this.pais = pais;
+    }
+    
+    public DepartamentoDto getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(DepartamentoDto departamento) {
+        this.departamento = departamento;
     }
 
     public CiudadOMunicipioDto getCiudadOMunicipio() {
@@ -172,6 +203,14 @@ public class InstitucionDto implements BaseEntity {
     public void setRazonSocial(String razonSocial) {
         this.razonSocial =  razonSocial;
     }
+    
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono =  telefono;
+    }
 
     public List<SedeDto> getSedeList() {
         return sedeList;
@@ -180,13 +219,21 @@ public class InstitucionDto implements BaseEntity {
     public void setSedeList(List<SedeDto> sedeList) {
         this.sedeList =  sedeList;
     }
-
-    public String getTelefono() {
-        return telefono;
+    
+    public List<PeriodoDto> getPeriodoList() {
+        return periodoList;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono =  telefono;
+    public void setPeriodoList(List<PeriodoDto> periodoList) {
+        this.periodoList =  periodoList;
+    }
+    
+    public List<JornadaDto> getJornadaList() {
+        return jornadaList;
+    }
+
+    public void setJornadaList(List<JornadaDto> jornadaList) {
+        this.jornadaList =  jornadaList;
     }
 
     @Override

@@ -9,11 +9,11 @@ import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
 import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
-import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
+import com.lacv.jmagrexs.annotation.TypeFormField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
+import com.lacv.jmagrexs.enums.FieldType;
 import java.util.Date;
 import java.util.List;
 
@@ -21,139 +21,144 @@ import java.util.List;
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class DocenteDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @Size(max=100)
-    @ColumnWidth(200)
-    @TextField("Barrio")
-    private String barrio;
-    
-    @Order(2)
-    @ColumnWidth(200)
-    @TextField("CiudadOMunicipio")
-    private CiudadOMunicipioDto ciudadOMunicipio;
-    
-    @Order(3)
-    @Size(max=60)
-    @ColumnWidth(200)
-    @TextField("CorreoElectronico")
-    private String correoElectronico;
-    
-    @Order(4)
-    @Size(max=150)
-    @ColumnWidth(200)
-    @TextField("Direccion")
-    private String direccion;
-    
-    private List<DocenteAsignaturaDto> docenteAsignaturaList;
-    
-    private List<DocenteasignaturaCursoDto> docenteasignaturaCursoList;
-    
-    @Order(5)
-    @NotNull
-    @ColumnWidth(200)
-    @TextField("DocumentoId")
-    private long documentoId;
-    
-    @Order(6)
-    @ColumnWidth(100)
-    @TextField("Estado")
-    private Boolean estado;
-    
-    @Order(7)
-    @Size(max=1)
-    @ColumnWidth(200)
-    @TextField("EstadoCivil")
-    private String estadoCivil;
-    
-    private List<EvaluacionDto> evaluacionList;
-    
-    @Order(8)
-    @ColumnWidth(200)
-    @TextField("FechaNacimiento")
-    private Date fechaNacimiento;
-    
-    @Order(9)
-    @ColumnWidth(200)
-    @TextField("FechaRegistro")
-    private Date fechaRegistro;
-    
-    @Order(10)
-    @Size(max=100)
-    @ColumnWidth(200)
-    @TextField("Foto")
-    private String foto;
-    
-    @Order(11)
     @NotNull
     @ColumnWidth(100)
     @TextField("Id")
     private Integer id;
     
-    @Order(12)
-    @Size(max=50)
+    @Order(2)
+    @NotNull
     @ColumnWidth(200)
-    @TextField("Nacionalidad")
-    private String nacionalidad;
+    @TextField("Documento Id")
+    private long documentoId;
     
-    @Order(13)
+    @Order(3)
     @NotNull
     @Size(min=1,max=100)
     @ColumnWidth(200)
     @TextField("Nombre")
     private String nombre;
     
-    @Order(14)
+    @Order(4)
     @NotNull
     @Size(min=1,max=100)
     @ColumnWidth(200)
-    @TextField("PrimerApellido")
+    @TextField("Primer Apellido")
     private String primerApellido;
     
-    @Order(15)
-    @ColumnWidth(200)
-    @TextField("Sede")
-    private SedeDto sede;
-    
-    @Order(16)
+    @Order(5)
     @NotNull
     @Size(min=1,max=100)
     @ColumnWidth(200)
-    @TextField("SegundoApellido")
+    @TextField("Segundo Apellido")
     private String segundoApellido;
     
-    @Order(17)
+    @Order(6)
     @Size(max=1)
     @ColumnWidth(200)
     @TextField("Sexo")
     private String sexo;
     
-    @Order(18)
+    @Order(7)
+    @ColumnWidth(200)
+    @TextField("Fecha Nacimiento")
+    private Date fechaNacimiento;
+    
+    @Order(8)
+    @ColumnWidth(200)
+    @TextField("Pais")
+    private PaisDto pais;
+    
+    @Order(9)
+    @ColumnWidth(200)
+    @TextField("Departamento")
+    private DepartamentoDto departamento;
+    
+    @Order(10)
+    @ColumnWidth(200)
+    @TextField("Ciudad o Municipio")
+    private CiudadOMunicipioDto ciudadOMunicipio;
+    
+    @Order(11)
+    @Size(max=100)
+    @ColumnWidth(200)
+    @TextField("Barrio")
+    private String barrio;
+    
+    @Order(12)
+    @Size(max=150)
+    @ColumnWidth(200)
+    @TextField("Direccion")
+    private String direccion;
+    
+    @Order(13)
+    @Size(max=60)
+    @ColumnWidth(200)
+    @TextField("Correo Electronico")
+    private String correoElectronico;
+    
+    @Order(14)
     @Size(max=50)
     @ColumnWidth(200)
-    @TextField("Telefono1")
+    @TextField("Telefono 1")
     private String telefono1;
     
-    @Order(19)
+    @Order(15)
     @Size(max=50)
     @ColumnWidth(200)
-    @TextField("Telefono2")
+    @TextField("Telefono 2")
     private String telefono2;
+    
+    @Order(16)
+    @Size(max=1)
+    @ColumnWidth(200)
+    @TextField("Estado Civil")
+    private String estadoCivil;
+    
+    @Order(17)
+    @Size(max=200)
+    @ColumnWidth(200)
+    @TextField("Titulo Profesional")
+    private String tituloProfesional;
+    
+    @Order(18)
+    @ColumnWidth(200)
+    @TextField("Sede")
+    private SedeDto sede;
+    
+    @Order(19)
+    @Size(max=100)
+    @ColumnWidth(200)
+    @TextField("Foto")
+    private String foto;
     
     @Order(20)
     @ColumnWidth(200)
-    @TextField("TipoAcceso")
+    @TextField("Tipo Acceso")
     private Integer tipoAcceso;
     
     @Order(21)
-    @Size(max=200)
+    @ColumnWidth(100)
+    @TextField("Estado")
+    @TypeFormField(value = FieldType.MULTI_SELECT, data = {"Active", "Inactive", "Locked", "Deleted"})
+    private String estado;
+    
+    @Order(22)
     @ColumnWidth(200)
-    @TextField("TituloProfesional")
-    private String tituloProfesional;
+    @TextField("Fecha Registro")
+    private Date fechaRegistro;
+    
+    private List<DocenteAsignaturaDto> docenteAsignaturaList;
+    
+    private List<DocenteasignaturaCursoDto> docenteasignaturaCursoList;
+    
+    private List<EvaluacionDto> evaluacionList;
     
 
     public DocenteDto() {
@@ -165,6 +170,22 @@ public class DocenteDto implements BaseEntity {
 
     public void setBarrio(String barrio) {
         this.barrio =  barrio;
+    }
+    
+    public PaisDto getPais() {
+        return pais;
+    }
+
+    public void setPais(PaisDto pais) {
+        this.pais = pais;
+    }
+    
+    public DepartamentoDto getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(DepartamentoDto departamento) {
+        this.departamento = departamento;
     }
 
     public CiudadOMunicipioDto getCiudadOMunicipio() {
@@ -215,11 +236,11 @@ public class DocenteDto implements BaseEntity {
         this.documentoId =  documentoId;
     }
 
-    public Boolean getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean estado) {
+    public void setEstado(String estado) {
         this.estado =  estado;
     }
 
@@ -271,14 +292,6 @@ public class DocenteDto implements BaseEntity {
     @Override
     public void setId(Object id) {
         this.id = (Integer) id;
-    }
-
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad =  nacionalidad;
     }
 
     public String getNombre() {

@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 public class PeriodoMapper extends EntityMapperImpl<Periodo, PeriodoDto> implements EntityMapper<Periodo, PeriodoDto> {
     
     @Autowired
-    GradoMapper gradoMapper;
+    InstitucionMapper institucionMapper;
 
     
     @Override
@@ -29,7 +29,7 @@ public class PeriodoMapper extends EntityMapperImpl<Periodo, PeriodoDto> impleme
         PeriodoDto dto= new PeriodoDto();
         if(entity!=null){
             dto.setAlias(entity.getAlias());
-            dto.setGrado(gradoMapper.entityToDto(entity.getGrado()));
+            dto.setInstitucion(institucionMapper.entityToDto(entity.getInstitucion()));
             dto.setId(entity.getId());
             dto.setNumero(entity.getNumero());
         }

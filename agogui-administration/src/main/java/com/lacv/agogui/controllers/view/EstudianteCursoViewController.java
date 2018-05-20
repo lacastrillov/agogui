@@ -40,15 +40,15 @@ public class EstudianteCursoViewController extends ExtEntityController {
     @PostConstruct
     public void init(){
         EntityConfig view= new EntityConfig("estudianteCurso", estudianteCursoService, EstudianteCursoDto.class);
-        view.setSingularEntityTitle("EstudianteCurso");
-        view.setPluralEntityTitle("EstudianteCursos");
+        view.setSingularEntityTitle("Estudiante por Curso");
+        view.setPluralEntityTitle("Estudiantes por Cursos");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
         view.setDefaultOrder("id", "DESC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("estudianteCurso", "Gestionar EstudianteCursos", 1);
+        MenuItem menuParent= new MenuItem("Estudiantes");
+        MenuItem menuItem= new MenuItem("estudianteCurso", "Gestionar Estudiantes por Cursos", 2);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

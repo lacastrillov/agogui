@@ -41,15 +41,17 @@ public class PaisViewController extends ExtEntityController {
     public void init(){
         EntityConfig view= new EntityConfig("pais", paisService, PaisDto.class);
         view.setSingularEntityTitle("Pais");
-        view.setPluralEntityTitle("Paiss");
+        view.setPluralEntityTitle("Paises");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("nombre", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("pais", "Gestionar Paiss", 1);
-        menuParent.addSubMenu(menuItem);
+        MenuItem menuParent= new MenuItem("Sistema");
+        MenuItem menuParent1= new MenuItem("Ubicaci&oacute;n", 5);
+        MenuItem menuItem= new MenuItem("pais", "Gestionar Paises", 1);
+        menuParent1.addSubMenu(menuItem);
+        menuParent.addSubMenu(menuParent1);
         menuComponent.addItemMenu(menuParent);
     }
     

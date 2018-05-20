@@ -7,44 +7,40 @@ package com.lacv.agogui.model.dtos;
 
 import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
-import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("titulo")
 public class TemaDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @ColumnWidth(200)
-    @TextField("Asignatura")
-    private AsignaturaDto asignatura;
-    
-    @Order(2)
     @ReadOnly
     @ColumnWidth(100)
     @TextField("Id")
     private Integer id;
     
-    private List<LogroDto> logroList;
-    
-    @Order(3)
+    @Order(2)
     @Size(max=200)
     @ColumnWidth(200)
     @TextField("Titulo")
     private String titulo;
     
+    @Order(3)
+    @ColumnWidth(200)
+    @TextField("Asignatura")
+    private AsignaturaDto asignatura;    
+    
+    private List<LogroDto> logroList;
 
     public TemaDto() {
     }

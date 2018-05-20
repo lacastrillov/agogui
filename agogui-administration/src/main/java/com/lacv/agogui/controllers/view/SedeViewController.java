@@ -44,11 +44,11 @@ public class SedeViewController extends ExtEntityController {
         view.setPluralEntityTitle("Sedes");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("nombre", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("sede", "Gestionar Sedes", 1);
+        MenuItem menuParent= new MenuItem("Instituci&oacute;n");
+        MenuItem menuItem= new MenuItem("sede", "Gestionar Sedes", 2);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

@@ -44,11 +44,11 @@ public class TemaViewController extends ExtEntityController {
         view.setPluralEntityTitle("Temas");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("titulo", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("tema", "Gestionar Temas", 1);
+        MenuItem menuParent= new MenuItem("Asignaturas");
+        MenuItem menuItem= new MenuItem("tema", "Gestionar Temas", 2);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

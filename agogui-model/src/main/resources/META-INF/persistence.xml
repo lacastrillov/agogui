@@ -25,6 +25,7 @@
     <class>com.lacv.agogui.model.entities.Departamento</class>
     <class>com.lacv.agogui.model.entities.Institucion</class>
     <class>com.lacv.agogui.model.entities.Pais</class>
+    <class>com.lacv.agogui.model.entities.InstitucionUser</class>
     <class>com.lacv.jmagrexs.modules.security.entities.Authorization</class>
     <class>com.lacv.jmagrexs.modules.security.entities.WebresourceRole</class>
     <class>com.lacv.jmagrexs.modules.security.entities.RoleAuthorization</class>

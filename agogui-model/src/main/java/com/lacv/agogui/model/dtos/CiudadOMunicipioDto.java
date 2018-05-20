@@ -13,20 +13,32 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class CiudadOMunicipioDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
     @Order(1)
+    @NotNull
+    @ReadOnly
+    @ColumnWidth(100)
+    @TextField("Id")
+    private Integer id;
+    
+    @Order(2)
+    @NotNull
+    @Size(min=1,max=100)
+    @ColumnWidth(200)
+    @TextField("Nombre")
+    private String nombre;
+    
+    @Order(3)
     @ColumnWidth(200)
     @TextField("Departamento")
     private DepartamentoDto departamento;
@@ -35,21 +47,7 @@ public class CiudadOMunicipioDto implements BaseEntity {
     
     private List<EstudianteDto> estudianteList;
     
-    @Order(2)
-    @NotNull
-    @ReadOnly
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
-    
     private List<InstitucionDto> institucionList;
-    
-    @Order(3)
-    @NotNull
-    @Size(min=1,max=100)
-    @ColumnWidth(200)
-    @TextField("Nombre")
-    private String nombre;
     
 
     public CiudadOMunicipioDto() {

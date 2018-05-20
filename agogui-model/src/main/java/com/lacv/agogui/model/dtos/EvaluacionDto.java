@@ -13,7 +13,6 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -21,20 +20,23 @@ import java.util.List;
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("titulo")
 public class EvaluacionDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @ColumnWidth(200)
-    @TextField("Asignatura")
-    private AsignaturaDto asignatura;
+    @ReadOnly
+    @ColumnWidth(100)
+    @TextField("Id")
+    private Integer id;
     
     @Order(2)
+    @NotNull
+    @Size(min=1,max=150)
     @ColumnWidth(200)
-    @TextField("Curso")
-    private CursoDto curso;
+    @TextField("Titulo")
+    private String titulo;
     
     @Order(3)
     @Size(max=65535)
@@ -44,48 +46,45 @@ public class EvaluacionDto implements BaseEntity {
     
     @Order(4)
     @ColumnWidth(200)
-    @TextField("Docente")
-    private DocenteDto docente;
-    
-    @Order(5)
-    @ColumnWidth(200)
-    @TextField("Fecha")
-    private Date fecha;
-    
-    @Order(6)
-    @ReadOnly
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
-    
-    private List<NotaEvaluacionDto> notaEvaluacionList;
-    
-    @Order(7)
-    @ColumnWidth(200)
     @TextField("Numero")
     private Integer numero;
     
-    @Order(8)
-    @ColumnWidth(200)
-    @TextField("Periodo")
-    private PeriodoDto periodo;
-    
-    @Order(9)
+    @Order(5)
     @ColumnWidth(200)
     @TextField("Porcentaje")
     private Integer porcentaje;
     
+    @Order(6)
+    @ColumnWidth(200)
+    @TextField("Periodo")
+    private PeriodoDto periodo;
+    
+    @Order(7)
+    @ColumnWidth(200)
+    @TextField("Docente")
+    private DocenteDto docente;
+    
+    @Order(8)
+    @ColumnWidth(200)
+    @TextField("Asignatura")
+    private AsignaturaDto asignatura;
+    
+    @Order(9)
+    @ColumnWidth(200)
+    @TextField("Curso")
+    private CursoDto curso;
+    
     @Order(10)
     @ColumnWidth(200)
-    @TextField("TipoCalificacionLogros")
+    @TextField("Tipom Calificacion Logros")
     private Integer tipoCalificacionLogros;
     
     @Order(11)
-    @NotNull
-    @Size(min=1,max=150)
     @ColumnWidth(200)
-    @TextField("Titulo")
-    private String titulo;
+    @TextField("Fecha")
+    private Date fecha;
+    
+    private List<NotaEvaluacionDto> notaEvaluacionList;
     
 
     public EvaluacionDto() {

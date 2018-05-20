@@ -67,15 +67,28 @@ public class Institucion implements BaseEntity {
     @Size(max = 20)
     @Column(name = "estado")
     private String estado;
+    @JoinColumn(name = "id_pais", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Pais pais;
+    @JoinColumn(name = "id_departamento", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Departamento departamento;
+    @JoinColumn(name = "id_ciudad_o_municipio", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private CiudadOMunicipio ciudadOMunicipio;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucion")
+    private List<InstitucionUser> institucionUserList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucion")
     private List<Area> areaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucion")
     private List<Grado> gradoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucion")
     private List<Sede> sedeList;
-    @JoinColumn(name = "id_ciudad_o_municipio", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private CiudadOMunicipio ciudadOMunicipio;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucion")
+    private List<Periodo> periodoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucion")
+    private List<Jornada> jornadaList;
+    
 
     public Institucion() {
     }
@@ -156,6 +169,30 @@ public class Institucion implements BaseEntity {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    
+    public Pais getPais() {
+        return pais;
+    }
+
+    public void setPais(Pais pais) {
+        this.pais = pais;
+    }
+    
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
+    public CiudadOMunicipio getCiudadOMunicipio() {
+        return ciudadOMunicipio;
+    }
+
+    public void setCiudadOMunicipio(CiudadOMunicipio ciudadOMunicipio) {
+        this.ciudadOMunicipio = ciudadOMunicipio;
+    }
 
     public List<Area> getAreaList() {
         return areaList;
@@ -180,13 +217,29 @@ public class Institucion implements BaseEntity {
     public void setSedeList(List<Sede> sedeList) {
         this.sedeList = sedeList;
     }
-
-    public CiudadOMunicipio getCiudadOMunicipio() {
-        return ciudadOMunicipio;
+    
+    public List<Periodo> getPeriodoList() {
+        return periodoList;
     }
 
-    public void setCiudadOMunicipio(CiudadOMunicipio ciudadOMunicipio) {
-        this.ciudadOMunicipio = ciudadOMunicipio;
+    public void setPeriodoList(List<Periodo> periodoList) {
+        this.periodoList = periodoList;
+    }
+    
+    public List<InstitucionUser> getInstitucionUserList() {
+        return institucionUserList;
+    }
+
+    public void setInstitucionUserList(List<InstitucionUser> institucionUserList) {
+        this.institucionUserList = institucionUserList;
+    }
+    
+    public List<Jornada> getJornadaList() {
+        return jornadaList;
+    }
+
+    public void setJornadaList(List<Jornada> jornadaList) {
+        this.jornadaList = jornadaList;
     }
 
     @Override

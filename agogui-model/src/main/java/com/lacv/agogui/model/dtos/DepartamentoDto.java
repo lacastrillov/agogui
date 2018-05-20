@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class DepartamentoDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;

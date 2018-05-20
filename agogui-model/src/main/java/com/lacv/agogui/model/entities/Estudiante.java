@@ -71,9 +71,6 @@ public class Estudiante implements BaseEntity {
     @Size(max = 100)
     @Column(name = "foto")
     private String foto;
-    @Size(max = 50)
-    @Column(name = "nacionalidad")
-    private String nacionalidad;
     @Size(max = 100)
     @Column(name = "barrio")
     private String barrio;
@@ -92,13 +89,19 @@ public class Estudiante implements BaseEntity {
     @Column(name = "tipo_acceso")
     private Integer tipoAcceso;
     @Column(name = "estado")
-    private Boolean estado;
+    private String estado;
+    @JoinColumn(name = "id_pais", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Pais pais;
+    @JoinColumn(name = "id_departamento", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Departamento departamento;
     @JoinColumn(name = "id_ciudad_o_municipio", referencedColumnName = "id")
     @ManyToOne
     private CiudadOMunicipio ciudadOMunicipio;
-    @JoinColumn(name = "id_jornada", referencedColumnName = "id")
-    @ManyToOne
-    private Jornada jornada;
+    @JoinColumn(name = "id_sede", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Sede sede;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudiante")
     private List<NotaFinal> notaFinalList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudiante")
@@ -197,14 +200,6 @@ public class Estudiante implements BaseEntity {
         this.foto = foto;
     }
 
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-
     public String getBarrio() {
         return barrio;
     }
@@ -253,12 +248,28 @@ public class Estudiante implements BaseEntity {
         this.tipoAcceso = tipoAcceso;
     }
 
-    public Boolean getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
+    }
+    
+    public Pais getPais() {
+        return pais;
+    }
+
+    public void setPais(Pais pais) {
+        this.pais = pais;
+    }
+    
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
 
     public CiudadOMunicipio getCiudadOMunicipio() {
@@ -269,12 +280,12 @@ public class Estudiante implements BaseEntity {
         this.ciudadOMunicipio = ciudadOMunicipio;
     }
 
-    public Jornada getJornada() {
-        return jornada;
+    public Sede getSede() {
+        return sede;
     }
 
-    public void setJornada(Jornada jornada) {
-        this.jornada = jornada;
+    public void setSede(Sede sede) {
+        this.sede = sede;
     }
 
     public List<NotaFinal> getNotaFinalList() {

@@ -13,7 +13,6 @@ import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -21,32 +20,29 @@ import java.util.List;
  *
  * @author lcastrillo
  */
-@LabelField("id")
+@LabelField("nombre")
 public class CursoDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
     @Order(1)
+    @ReadOnly
     @ColumnWidth(100)
-    @TextField("Activo")
-    private Boolean activo;
+    @TextField("Id")
+    private Integer id;
     
     @Order(2)
     @NotNull
+    @Size(min=1,max=30)
     @ColumnWidth(200)
-    @TextField("AnioLectivo")
-    private int anioLectivo;
-    
-    private List<DocenteasignaturaCursoDto> docenteasignaturaCursoList;
-    
-    private List<EstudianteCursoDto> estudianteCursoList;
-    
-    private List<EvaluacionDto> evaluacionList;
+    @TextField("Nombre")
+    private String nombre;
     
     @Order(3)
+    @NotNull
     @ColumnWidth(200)
-    @TextField("FechaCreacion")
-    private Date fechaCreacion;
+    @TextField("A&ntilde;o Lectivo")
+    private int anioLectivo;
     
     @Order(4)
     @ColumnWidth(200)
@@ -54,10 +50,9 @@ public class CursoDto implements BaseEntity {
     private GradoDto grado;
     
     @Order(5)
-    @ReadOnly
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
+    @ColumnWidth(200)
+    @TextField("Fecha Creaci&oacute;n")
+    private Date fechaCreacion;
     
     @Order(6)
     @ColumnWidth(200)
@@ -65,11 +60,20 @@ public class CursoDto implements BaseEntity {
     private JornadaDto jornada;
     
     @Order(7)
-    @NotNull
-    @Size(min=1,max=30)
     @ColumnWidth(200)
-    @TextField("Nombre")
-    private String nombre;
+    @TextField("Sede")
+    private SedeDto sede;
+    
+    @Order(8)
+    @ColumnWidth(100)
+    @TextField("Activo")
+    private Boolean activo;
+    
+    private List<DocenteasignaturaCursoDto> docenteasignaturaCursoList;
+    
+    private List<EstudianteCursoDto> estudianteCursoList;
+    
+    private List<EvaluacionDto> evaluacionList;
     
     private List<NotaEvaluacionDto> notaEvaluacionList;
     
@@ -79,6 +83,16 @@ public class CursoDto implements BaseEntity {
     
 
     public CursoDto() {
+    }
+    
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Object id) {
+        this.id = (Integer) id;
     }
 
     public Boolean getActivo() {
@@ -97,6 +111,46 @@ public class CursoDto implements BaseEntity {
         this.anioLectivo =  anioLectivo;
     }
 
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion =  fechaCreacion;
+    }
+
+    public GradoDto getGrado() {
+        return grado;
+    }
+
+    public void setGrado(GradoDto grado) {
+        this.grado =  grado;
+    }
+
+    public JornadaDto getJornada() {
+        return jornada;
+    }
+
+    public void setJornada(JornadaDto jornada) {
+        this.jornada =  jornada;
+    }
+    
+    public SedeDto getSede() {
+        return sede;
+    }
+
+    public void setSede(SedeDto sede) {
+        this.sede =  sede;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre =  nombre;
+    }
+    
     public List<DocenteasignaturaCursoDto> getDocenteasignaturaCursoList() {
         return docenteasignaturaCursoList;
     }
@@ -119,48 +173,6 @@ public class CursoDto implements BaseEntity {
 
     public void setEvaluacionList(List<EvaluacionDto> evaluacionList) {
         this.evaluacionList =  evaluacionList;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion =  fechaCreacion;
-    }
-
-    public GradoDto getGrado() {
-        return grado;
-    }
-
-    public void setGrado(GradoDto grado) {
-        this.grado =  grado;
-    }
-
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Object id) {
-        this.id = (Integer) id;
-    }
-
-    public JornadaDto getJornada() {
-        return jornada;
-    }
-
-    public void setJornada(JornadaDto jornada) {
-        this.jornada =  jornada;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre =  nombre;
     }
 
     public List<NotaEvaluacionDto> getNotaEvaluacionList() {

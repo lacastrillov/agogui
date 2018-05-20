@@ -7,15 +7,11 @@ package com.lacv.agogui.model.dtos;
 
 import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
-import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
-import java.util.List;
 
 /**
  *
@@ -27,9 +23,10 @@ public class NotaEvaluacionDto implements BaseEntity {
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @ColumnWidth(200)
-    @TextField("Asignatura")
-    private AsignaturaDto asignatura;
+    @ReadOnly
+    @ColumnWidth(100)
+    @TextField("Id")
+    private Integer id;
     
     @Order(2)
     @ColumnWidth(200)
@@ -38,36 +35,35 @@ public class NotaEvaluacionDto implements BaseEntity {
     
     @Order(3)
     @ColumnWidth(200)
-    @TextField("Estudiante")
-    private EstudianteDto estudiante;
+    @TextField("Asignatura")
+    private AsignaturaDto asignatura;
     
     @Order(4)
     @ColumnWidth(200)
-    @TextField("Evaluacion")
-    private EvaluacionDto evaluacion;
+    @TextField("Estudiante")
+    private EstudianteDto estudiante;
     
     @Order(5)
+    @ColumnWidth(200)
+    @TextField("Evaluaci&oacute;n")
+    private EvaluacionDto evaluacion;
+    
+    @Order(6)
+    @ColumnWidth(200)
+    @TextField("Nota Numero")
+    private Double notaNumero;
+    
+    @Order(7)
+    @Size(max=10)
+    @ColumnWidth(200)
+    @TextField("Nota Texto")
+    private String notaTexto;
+    
+    @Order(8)
     @Size(max=1)
     @ColumnWidth(200)
     @TextField("Formato")
     private String formato;
-    
-    @Order(6)
-    @ReadOnly
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
-    
-    @Order(7)
-    @ColumnWidth(200)
-    @TextField("NotaNumero")
-    private Double notaNumero;
-    
-    @Order(8)
-    @Size(max=10)
-    @ColumnWidth(200)
-    @TextField("NotaTexto")
-    private String notaTexto;
     
 
     public NotaEvaluacionDto() {

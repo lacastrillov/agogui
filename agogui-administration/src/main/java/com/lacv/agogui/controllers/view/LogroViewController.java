@@ -47,8 +47,8 @@ public class LogroViewController extends ExtEntityController {
         view.setDefaultOrder("id", "DESC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("logro", "Gestionar Logros", 1);
+        MenuItem menuParent= new MenuItem("Asignaturas");
+        MenuItem menuItem= new MenuItem("logro", "Gestionar Logros", 4);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

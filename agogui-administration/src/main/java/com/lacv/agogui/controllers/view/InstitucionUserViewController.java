@@ -6,9 +6,9 @@
 
 package com.lacv.agogui.controllers.view;
 
-import com.lacv.agogui.model.dtos.JornadaDto;
-import com.lacv.agogui.model.mappers.JornadaMapper;
-import com.lacv.agogui.services.JornadaService;
+import com.lacv.agogui.model.dtos.InstitucionUserDto;
+import com.lacv.agogui.model.mappers.InstitucionUserMapper;
+import com.lacv.agogui.services.InstitucionUserService;
 import com.lacv.jmagrexs.controller.view.ExtEntityController;
 import com.lacv.jmagrexs.dto.MenuItem;
 import com.lacv.jmagrexs.dto.config.EntityConfig;
@@ -24,14 +24,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author lacastrillov
  */
 @Controller
-@RequestMapping(value="/vista/jornada")
-public class JornadaViewController extends ExtEntityController {
+@RequestMapping(value="/vista/institucionUser")
+public class InstitucionUserViewController extends ExtEntityController {
     
     @Autowired
-    JornadaService jornadaService;
+    InstitucionUserService institucionUserService;
     
     @Autowired
-    JornadaMapper jornadaMapper;
+    InstitucionUserMapper institucionUserMapper;
     
     @Autowired
     SecurityService securityService;
@@ -39,16 +39,16 @@ public class JornadaViewController extends ExtEntityController {
     
     @PostConstruct
     public void init(){
-        EntityConfig view= new EntityConfig("jornada", jornadaService, JornadaDto.class);
-        view.setSingularEntityTitle("Jornada");
-        view.setPluralEntityTitle("Jornadas");
+        EntityConfig view= new EntityConfig("institucionUser", institucionUserService, InstitucionUserDto.class);
+        view.setSingularEntityTitle("Usuario de Instituci&oacute;n");
+        view.setPluralEntityTitle("Usuarios de Instituci&oacute;n");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("nombre", "ASC");
+        view.setDefaultOrder("id", "DESC");
         super.addControlMapping(view);
         
         MenuItem menuParent= new MenuItem("Instituci&oacute;n");
-        MenuItem menuItem= new MenuItem("jornada", "Gestionar Jornadas", 3);
+        MenuItem menuItem= new MenuItem("institucionUser", "Gestionar Usuarios de Instituci&oacute;n", 7);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

@@ -44,10 +44,10 @@ public class AreaViewController extends ExtEntityController {
         view.setPluralEntityTitle("Areas");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("nombre", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
+        MenuItem menuParent= new MenuItem("Asignaturas");
         MenuItem menuItem= new MenuItem("area", "Gestionar Areas", 1);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);

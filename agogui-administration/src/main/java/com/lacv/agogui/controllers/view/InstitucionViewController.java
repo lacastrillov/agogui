@@ -40,15 +40,15 @@ public class InstitucionViewController extends ExtEntityController {
     @PostConstruct
     public void init(){
         EntityConfig view= new EntityConfig("institucion", institucionService, InstitucionDto.class);
-        view.setSingularEntityTitle("Institucion");
-        view.setPluralEntityTitle("Institucions");
+        view.setSingularEntityTitle("Instituci&oacute;n");
+        view.setPluralEntityTitle("Instituciones");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("nombre", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("institucion", "Gestionar Institucions", 1);
+        MenuItem menuParent= new MenuItem("Instituci&oacute;n", 2);
+        MenuItem menuItem= new MenuItem("institucion", "Gestionar Instituciones", 1);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

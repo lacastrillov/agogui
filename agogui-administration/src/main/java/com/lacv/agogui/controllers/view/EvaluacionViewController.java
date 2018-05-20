@@ -40,15 +40,15 @@ public class EvaluacionViewController extends ExtEntityController {
     @PostConstruct
     public void init(){
         EntityConfig view= new EntityConfig("evaluacion", evaluacionService, EvaluacionDto.class);
-        view.setSingularEntityTitle("Evaluacion");
-        view.setPluralEntityTitle("Evaluacions");
+        view.setSingularEntityTitle("Evaluaci&oacute;n");
+        view.setPluralEntityTitle("Evaluaciones");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("fecha", "DESC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("evaluacion", "Gestionar Evaluacions", 1);
+        MenuItem menuParent= new MenuItem("Docentes");
+        MenuItem menuItem= new MenuItem("evaluacion", "Gestionar Evaluaciones", 4);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

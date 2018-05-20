@@ -7,23 +7,22 @@ package com.lacv.agogui.model.dtos;
 
 import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
-import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
+import com.lacv.jmagrexs.modules.security.dtos.UserDto;
 
 /**
  *
  * @author lcastrillo
  */
 @LabelField("id")
-public class DocenteasignaturaCursoDto implements BaseEntity {
+public class InstitucionUserDto implements BaseEntity {
 
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @NotNull
     @ReadOnly
     @ColumnWidth(100)
     @TextField("Id")
@@ -31,50 +30,16 @@ public class DocenteasignaturaCursoDto implements BaseEntity {
     
     @Order(2)
     @ColumnWidth(200)
-    @TextField("Docente")
-    private DocenteDto docente;
+    @TextField("Instituci&oacute;n")
+    private InstitucionDto institucion;
     
     @Order(3)
     @ColumnWidth(200)
-    @TextField("Asignatura")
-    private AsignaturaDto asignatura;
-    
-    @Order(4)
-    @ColumnWidth(200)
-    @TextField("Curso")
-    private CursoDto curso;
-    
-    @Order(5)
-    @ColumnWidth(200)
-    @TextField("Intensidad Horaria")
-    private Integer intensidadHoraria;
+    @TextField("Usuario")
+    private UserDto user;
     
 
-    public DocenteasignaturaCursoDto() {
-    }
-
-    public AsignaturaDto getAsignatura() {
-        return asignatura;
-    }
-
-    public void setAsignatura(AsignaturaDto asignatura) {
-        this.asignatura =  asignatura;
-    }
-
-    public CursoDto getCurso() {
-        return curso;
-    }
-
-    public void setCurso(CursoDto curso) {
-        this.curso =  curso;
-    }
-
-    public DocenteDto getDocente() {
-        return docente;
-    }
-
-    public void setDocente(DocenteDto docente) {
-        this.docente =  docente;
+    public InstitucionUserDto() {
     }
 
     @Override
@@ -87,12 +52,20 @@ public class DocenteasignaturaCursoDto implements BaseEntity {
         this.id = (Integer) id;
     }
 
-    public Integer getIntensidadHoraria() {
-        return intensidadHoraria;
+    public InstitucionDto getInstitucion() {
+        return institucion;
     }
 
-    public void setIntensidadHoraria(Integer intensidadHoraria) {
-        this.intensidadHoraria =  intensidadHoraria;
+    public void setInstitucion(InstitucionDto institucion) {
+        this.institucion =  institucion;
+    }
+
+    public UserDto getUser() {
+        return user;
+    }
+
+    public void setUser(UserDto user) {
+        this.user =  user;
     }
 
     @Override
@@ -105,10 +78,10 @@ public class DocenteasignaturaCursoDto implements BaseEntity {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof DocenteasignaturaCursoDto)) {
+        if (!(object instanceof InstitucionUserDto)) {
             return false;
         }
-        DocenteasignaturaCursoDto other = (DocenteasignaturaCursoDto) object;
+        InstitucionUserDto other = (InstitucionUserDto) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -117,7 +90,7 @@ public class DocenteasignaturaCursoDto implements BaseEntity {
 
     @Override
     public String toString() {
-        return "com.lacv.agogui.model.dtos.DocenteasignaturaCursoDto[ id=" + id + " ]";
+        return "com.lacv.agogui.model.dtos.InstitucionUserDto[ id=" + id + " ]";
     }
     
 }

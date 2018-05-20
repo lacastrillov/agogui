@@ -7,15 +7,10 @@ package com.lacv.agogui.model.dtos;
 
 import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
-import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.ReadOnly;
-import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.domain.BaseEntity;
-import java.sql.Time;
-import java.util.Date;
-import java.util.List;
 
 /**
  *
@@ -27,9 +22,10 @@ public class EstudianteCursoDto implements BaseEntity {
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @ColumnWidth(200)
-    @TextField("Curso")
-    private CursoDto curso;
+    @ReadOnly
+    @ColumnWidth(100)
+    @TextField("Id")
+    private Integer id;
     
     @Order(2)
     @ColumnWidth(200)
@@ -37,10 +33,9 @@ public class EstudianteCursoDto implements BaseEntity {
     private EstudianteDto estudiante;
     
     @Order(3)
-    @ReadOnly
-    @ColumnWidth(100)
-    @TextField("Id")
-    private Integer id;
+    @ColumnWidth(200)
+    @TextField("Curso")
+    private CursoDto curso;
     
 
     public EstudianteCursoDto() {

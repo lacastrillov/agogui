@@ -54,13 +54,15 @@ public class Sede implements BaseEntity {
     @Size(max = 50)
     @Column(name = "telefono")
     private String telefono;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sede")
-    private List<Jornada> jornadaList;
     @JoinColumn(name = "codigo_institucion", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
     private Institucion institucion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sede")
     private List<Docente> docenteList;
+    @OneToMany(mappedBy = "sede")
+    private List<Estudiante> estudianteList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sede")
+    private List<Curso> cursoList;
 
     public Sede() {
     }
@@ -116,14 +118,6 @@ public class Sede implements BaseEntity {
         this.telefono = telefono;
     }
 
-    public List<Jornada> getJornadaList() {
-        return jornadaList;
-    }
-
-    public void setJornadaList(List<Jornada> jornadaList) {
-        this.jornadaList = jornadaList;
-    }
-
     public Institucion getInstitucion() {
         return institucion;
     }
@@ -138,6 +132,22 @@ public class Sede implements BaseEntity {
 
     public void setDocenteList(List<Docente> docenteList) {
         this.docenteList = docenteList;
+    }
+    
+    public List<Estudiante> getEstudianteList() {
+        return estudianteList;
+    }
+
+    public void setEstudianteList(List<Estudiante> estudianteList) {
+        this.estudianteList = estudianteList;
+    }
+    
+    public List<Curso> getCursoList() {
+        return cursoList;
+    }
+
+    public void setCursoList(List<Curso> cursoList) {
+        this.cursoList = cursoList;
     }
 
     @Override

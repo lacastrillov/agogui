@@ -48,9 +48,9 @@ public class Periodo implements BaseEntity {
     private String alias;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "periodo")
     private List<Logro> logroList;
-    @JoinColumn(name = "id_grado", referencedColumnName = "id")
+    @JoinColumn(name = "codigo_institucion", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
-    private Grado grado;
+    private Institucion institucion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "periodo")
     private List<Evaluacion> evaluacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "periodo")
@@ -102,12 +102,12 @@ public class Periodo implements BaseEntity {
         this.logroList = logroList;
     }
 
-    public Grado getGrado() {
-        return grado;
+    public Institucion getInstitucion() {
+        return institucion;
     }
 
-    public void setGrado(Grado grado) {
-        this.grado = grado;
+    public void setInstitucion(Institucion institucion) {
+        this.institucion = institucion;
     }
 
     public List<Evaluacion> getEvaluacionList() {

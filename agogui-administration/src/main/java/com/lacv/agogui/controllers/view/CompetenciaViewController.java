@@ -44,11 +44,11 @@ public class CompetenciaViewController extends ExtEntityController {
         view.setPluralEntityTitle("Competencias");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
-        view.setDefaultOrder("id", "DESC");
+        view.setDefaultOrder("titulo", "ASC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("competencia", "Gestionar Competencias", 1);
+        MenuItem menuParent= new MenuItem("Asignaturas");
+        MenuItem menuItem= new MenuItem("competencia", "Gestionar Competencias", 5);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

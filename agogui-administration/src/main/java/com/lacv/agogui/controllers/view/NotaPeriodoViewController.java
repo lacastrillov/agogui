@@ -40,15 +40,15 @@ public class NotaPeriodoViewController extends ExtEntityController {
     @PostConstruct
     public void init(){
         EntityConfig view= new EntityConfig("notaPeriodo", notaPeriodoService, NotaPeriodoDto.class);
-        view.setSingularEntityTitle("NotaPeriodo");
-        view.setPluralEntityTitle("NotaPeriodos");
+        view.setSingularEntityTitle("Nota Periodo");
+        view.setPluralEntityTitle("Notas Periodos");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
         view.setDefaultOrder("id", "DESC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("notaPeriodo", "Gestionar NotaPeriodos", 1);
+        MenuItem menuParent= new MenuItem("Estudiantes");
+        MenuItem menuItem= new MenuItem("notaPeriodo", "Gestionar Notas Periodos", 4);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

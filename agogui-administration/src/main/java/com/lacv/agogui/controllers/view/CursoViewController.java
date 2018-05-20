@@ -47,8 +47,8 @@ public class CursoViewController extends ExtEntityController {
         view.setDefaultOrder("id", "DESC");
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Entidades", 1);
-        MenuItem menuItem= new MenuItem("curso", "Gestionar Cursos", 1);
+        MenuItem menuParent= new MenuItem("Instituci&oacute;n", 1);
+        MenuItem menuItem= new MenuItem("curso", "Gestionar Cursos", 6);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }
