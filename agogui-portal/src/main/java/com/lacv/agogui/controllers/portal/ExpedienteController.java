@@ -10,25 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
-@RequestMapping(value = "/")
-public class HomeController {
+@RequestMapping(value = "/expediente")
+public class ExpedienteController {
     
     @Autowired
     SecurityService securityService;
     
     
     
-    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView getIndex(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mav = new ModelAndView("index");
-        
-
-        return mav;
-    }
-    
-    @RequestMapping(value = "/contactenos", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView getContactenos(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mav = new ModelAndView("contactenos");
+    @RequestMapping(value = "/estudiante", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView getExpediente(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mav = new ModelAndView("expediente");
         
 
         return mav;

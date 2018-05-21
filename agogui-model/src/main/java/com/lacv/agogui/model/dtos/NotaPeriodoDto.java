@@ -24,7 +24,6 @@ public class NotaPeriodoDto implements BaseEntity {
     private static final long serialVersionUID = 1L;
     
     @Order(6)
-    @NotNull
     @ReadOnly
     @ColumnWidth(100)
     @TextField("Id")

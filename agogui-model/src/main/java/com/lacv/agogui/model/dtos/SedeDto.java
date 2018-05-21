@@ -25,7 +25,6 @@ public class SedeDto implements BaseEntity {
     private static final long serialVersionUID = 1L;
     
     @Order(1)
-    @NotNull
     @ReadOnly
     @ColumnWidth(100)
     @TextField("Id")

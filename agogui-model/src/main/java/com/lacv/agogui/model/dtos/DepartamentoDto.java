@@ -29,7 +29,6 @@ public class DepartamentoDto implements BaseEntity {
     private List<CiudadOMunicipioDto> ciudadOMunicipioList;
     
     @Order(1)
-    @NotNull
     @ReadOnly
     @ColumnWidth(100)
     @TextField("Id")

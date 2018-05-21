@@ -7,38 +7,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
     <!-- Footer ================================================================== -->
-    <div  id="footerSection">
-        <div class="container">
-            <div class="row">
-                <div class="span3">
-                    <h5>CUENTA</h5>
-                    <a href="/account/home">MI CUENTA</a>
-                    <a href="/vista/myAccount/entity.htm">MIS DATOS</a> 
-                    <a href="/vista/myShopping/entity.htm">MIS COMPRAS</a>
-                    <a href="/tienda/carrito-de-compras">CARRITO DE COMPRAS</a>
-                </div>
-                <div class="span3">
-                    <h5>INFORMACI&Oacute;N</h5>
-                    <a href="/tienda/contactanos">CONT&Aacute;CTANOS</a>  
-                    <a href="/tienda/registro">REGISTRARSE</a>  
-                    <a href="/tienda/politicas-de-privacidad">POLITICAS DE PRIVACIDAD</a>  
-                    <a href="/tienda/terminos-y-condiciones">TERMINOS Y CONDICIONES</a> 
-                    <a href="/tienda/foro">FORO</a>
-                </div>
-                <div class="span3">
-                    <h5>NUESTRAS OFERTAS</h5>
-                    <a href="/productos/listado">TOP VENDIDOS</a>  
-                    <a href="/tienda/comparar">COMPARAR</a>  
-                    <a href="/tienda/promocion">OFERTA ESPECIAL</a>  
-                    <a href="#">PROVEEDORES</a> 
-                </div>
-                <!--<div id="socialMedia" class="span3 pull-right">
-                    <h5>SOCIAL MEDIA </h5>
-                    <a href="#"><img width="60" height="60" src="/themes/images/facebook.png" title="facebook" alt="facebook"/></a>
-                    <a href="#"><img width="60" height="60" src="/themes/images/twitter.png" title="twitter" alt="twitter"/></a>
-                    <a href="#"><img width="60" height="60" src="/themes/images/youtube.png" title="youtube" alt="youtube"/></a>
-                </div>-->
+    <div class="content-wrapper">
+        <div class="white-wrapper">
+            <p class="site-description">Denali
+                is a simple responsive blog template. Easily add new posts using the 
+                Editor or change layout and design using the Designer.
+            </p>
+            <div class="grey-rule"></div>
+            <h2 class="small-heading">Featured Posts:</h2>
+            <div class="grey-rule"></div>
+            <div class="social-link-group">
+                <a href="#" class="social-icon-link w-inline-block"><img src="/static/5b018faf59e4c8467a76ba13_social-03.svg" width="25"></a>
+                <a href="#" class="social-icon-link w-inline-block"><img src="/static/5b018faf59e4c82cdc76ba59_social-07.svg" width="25"></a>
+                <a href="#" class="social-icon-link w-inline-block"><img src="/static/5b018faf59e4c8651476baa4_social-18.svg" width="25"></a>
+                <a href="#" class="social-icon-link w-inline-block"><img src="/static/5b018faf59e4c82e3576ba20_social-09.svg" width="25"></a>
             </div>
-            <p class="pull-right">&copy;lacv</p>
-        </div><!-- Container End -->
+            <p class="built-with-webflow">Built with <a target="_blank" href="https://webflow.com/" class="webflow-link">Webflow</a></p>
+        </div>
     </div>
+    <script src="/static/jquery-3.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="/static/webflow.js" type="text/javascript"></script><!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+    <a class="w-webflow-badge" href="https://webflow.com/?utm_campaign=brandjs">
+        <img src="/static/webflow-badge-icon.svg" style="margin-right: 8px; width: 16px;">
+        <img src="/static/webflow-badge-text.svg">
+    </a>

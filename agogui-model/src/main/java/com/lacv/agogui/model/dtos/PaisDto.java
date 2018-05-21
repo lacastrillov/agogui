@@ -27,7 +27,6 @@ public class PaisDto implements BaseEntity {
     private List<DepartamentoDto> departamentoList;
     
     @Order(1)
-    @NotNull
     @ReadOnly
     @ColumnWidth(100)
     @TextField("Id")

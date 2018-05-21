@@ -81,11 +81,13 @@ public class InstitucionDto implements BaseEntity {
     private DepartamentoDto departamento;
     
     @Order(10)
+    @NotNull
     @ColumnWidth(200)
     @TextField("Ciudad o Municipio")
     private CiudadOMunicipioDto ciudadOMunicipio;
     
     @Order(11)
+    @NotNull
     @Size(max=20)
     @ColumnWidth(200)
     @TextField("Estado")

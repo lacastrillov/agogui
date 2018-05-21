@@ -1,62 +1,76 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com -->
+<!-- Last Published: Sun May 20 2018 19:10:39 GMT+0000 (UTC) -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html 
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Iniciar Sesion - Mercando</title>
+        <title>Iniciar Sesi&oacute;n</title>
+        <meta content="Contact" property="og:title">
     </head>
     <body>
         
-        <section class="login">
-            <div class="container">
-                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                    <div style="height: 45px; padding-top: 35px;">
-                        <c:if test="${!empty param.login_error}">
-                            <div class="alert alert-error">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+        <div class="content-wrapper">
+            <div class="w-container">
+                <div class="w-row">
+                    <div class="w-hidden-small w-hidden-tiny w-col w-col-1"></div>
+                    <div class="content-column w-col w-col-11">
+                        <div class="post-wrapper">
+                            <div class="loginDiv post-content">
+                                <div class="body-copy w-richtext">
+                                    <h1>Iniciar Sesi&oacute;n</h1>
+                                    <p>
+                                        Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta 
+                                        ac consectetur ac, vestibulum at eros. Nulla vitae elit libero.
+                                    </p>
+                                </div>
+                                <div class="form-wrapper w-form">
+                                    <form id="formLogin" action="<c:url value='/account/authenticate'/>" method="post">
+                                        <label for="Name">Usuario</label>
+                                        <input placeholder="usuario" id="j_username" type="text" class="text-field w-input" name="j_username" value="" maxlength="50" minlength="3" />
+                                        <label for="Email">Contrase&ntilde;a</label>
+                                        <input placeholder="* * * * * *" id="j_password" type="password" class="text-field w-input" name="j_password" value="" maxlength="50" minlength="3" />
+                                        <input value="Ingresar" type="button" onclick="userAuthentication.authenticate('formLogin')" class="button w-button" />
+                                        <input value="&iquest;Olvidaste tu clave?" type="button" onclick="userAuthentication.changeForm('changePasswordDiv')" class="button w-button" />
+                                    </form>
+                                    <div class="success-message w-form-done">
+                                        <p class="success-text">Thank you! Your submission has been received!</p>
+                                    </div>
+                                    <div class="w-form-fail">
+                                        <p>Oops! Something went wrong while submitting the form</p>
+                                    </div>
+                                </div>
                             </div>
-                        </c:if>
+                            <div class="changePasswordDiv post-content" style="display: none">
+                                <div class="body-copy w-richtext">
+                                    <h1>Recuperar Contrase&ntilde;a</h1>
+                                    <p>
+                                        Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta 
+                                        ac consectetur ac, vestibulum at eros. Nulla vitae elit libero.
+                                    </p>
+                                </div>
+                                <div class="form-wrapper w-form">
+                                    <form id="changePasswordForm" action="<%=request.getContextPath()%>/web/usuario/ajax/recuperarContrasena" method="post">
+                                        <label for="Email">Email Address</label>
+                                        <input id="correoElectronico" name="correoElectronico" type="text" class="text-field w-input" placeholder="Correo electr&oacute;nico" />
+                                        <input value="Ingresar" type="button" onclick="userAuthentication.resetPassword();" class="button w-button" />
+                                        <input value="Volver" type="button" onclick="userAuthentication.changeForm('loginDiv')" class="button w-button" />
+                                    </form>
+                                    <div class="success-message w-form-done">
+                                        <p class="success-text">Thank you! Your submission has been received!</p>
+                                    </div>
+                                    <div class="w-form-fail">
+                                        <p>Oops! Something went wrong while submitting the form</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="loginDiv col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                    <h3>Iniciar Sesi&oacute;n</h3>
-                    <form id="formLogin" action="<c:url value='/account/authenticate'/>" method="post">
-                        <div class="box-login">
-                            <div class="box-input">
-                                <img src="/img/email.png" width="40" />
-                                <input placeholder="Correo electr&oacute;nico" id="j_username" type="text" class="validate" name="j_username" value="" maxlength="50" minlength="3" />
-                            </div>
-
-                            <div class="box-input">
-                                <img src="/img/password.png" width="40">
-                                <input placeholder="* * * * * *" id="j_password" type="password" class="validate" name="j_password" value="" maxlength="50" minlength="3" />
-                            </div>
-                        </div>
-                        <button type="button" onclick="userAuthentication.authenticate('formLogin')" class="btn-ingreso">Ingresar</button>
-                        <a class="link-pass" onclick="userAuthentication.changeForm('changePasswordDiv')" href="javascript:void(0);">&iquest;Olvidaste tu clave?</a>
-                    </form>
-                </div>
-                <div class="changePasswordDiv col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" style="display:none;">
-                    <h3>Recuperar Contrase&ntilde;a</h3>
-                    <form id="changePasswordForm" action="<%=request.getContextPath()%>/web/usuario/ajax/recuperarContrasena" method="post">
-                        <div class="box-login">
-                            <div class="box-input">
-                                <img src="/img/email.png" width="40" />
-                                <input id="correoElectronico" name="correoElectronico" type="text" class="validate" placeholder="Correo electr&oacute;nico" />
-                            </div>
-                        </div>
-                        <a onclick="userAuthentication.resetPassword();" href="javascript:void(0)" class="btn-ingreso">Enviar</a>
-                        <a class="link-pass" onclick="userAuthentication.changeForm('loginDiv')" href="javascript:void(0);">Volver</a>
-                    </form>
-                </div>
             </div>
-        </section>
+        </div>
         
     </body>
 </html>
