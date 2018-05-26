@@ -59,4 +59,32 @@ public class LogroMapper extends EntityMapperImpl<Logro, LogroDto> implements En
         return dtos;
     }
     
+    @Override
+    public Logro dtoToEntity(LogroDto dto) {
+        Logro entity= new Logro();
+        if(dto!=null){
+            entity.setCompetencia(competenciaMapper.dtoToEntity(dto.getCompetencia()));
+            entity.setDescripcion(dto.getDescripcion());
+            entity.setId(dto.getId());
+            entity.setPeriodo(periodoMapper.dtoToEntity(dto.getPeriodo()));
+            entity.setTema(temaMapper.dtoToEntity(dto.getTema()));
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Logro> listDtosToListEntities(List<LogroDto> dtos){
+        List<Logro> entities= new ArrayList<>();
+        if(entities!=null){
+            for(LogroDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

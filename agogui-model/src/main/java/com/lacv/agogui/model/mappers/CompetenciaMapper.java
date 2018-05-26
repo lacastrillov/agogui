@@ -47,4 +47,29 @@ public class CompetenciaMapper extends EntityMapperImpl<Competencia, Competencia
         return dtos;
     }
     
+    @Override
+    public Competencia dtoToEntity(CompetenciaDto dto) {
+        Competencia entity= new Competencia();
+        if(dto!=null){
+            entity.setId(dto.getId());
+            entity.setTitulo(dto.getTitulo());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Competencia> listDtosToListEntities(List<CompetenciaDto> dtos){
+        List<Competencia> entities= new ArrayList<>();
+        if(entities!=null){
+            for(CompetenciaDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

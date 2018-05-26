@@ -51,4 +51,30 @@ public class DepartamentoMapper extends EntityMapperImpl<Departamento, Departame
         return dtos;
     }
     
+    @Override
+    public Departamento dtoToEntity(DepartamentoDto dto) {
+        Departamento entity= new Departamento();
+        if(dto!=null){
+            entity.setId(dto.getId());
+            entity.setNombre(dto.getNombre());
+            entity.setPais(paisMapper.dtoToEntity(dto.getPais()));
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Departamento> listDtosToListEntities(List<DepartamentoDto> dtos){
+        List<Departamento> entities= new ArrayList<>();
+        if(entities!=null){
+            for(DepartamentoDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

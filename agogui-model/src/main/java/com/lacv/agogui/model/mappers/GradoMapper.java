@@ -52,4 +52,31 @@ public class GradoMapper extends EntityMapperImpl<Grado, GradoDto> implements En
         return dtos;
     }
     
+    @Override
+    public Grado dtoToEntity(GradoDto dto) {
+        Grado entity= new Grado();
+        if(dto!=null){
+            entity.setAlias(dto.getAlias());
+            entity.setId(dto.getId());
+            entity.setInstitucion(institucionMapper.dtoToEntity(dto.getInstitucion()));
+            entity.setNumero(dto.getNumero());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Grado> listDtosToListEntities(List<GradoDto> dtos){
+        List<Grado> entities= new ArrayList<>();
+        if(entities!=null){
+            for(GradoDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

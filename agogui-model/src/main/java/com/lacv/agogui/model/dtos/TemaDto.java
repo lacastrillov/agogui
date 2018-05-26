@@ -11,7 +11,7 @@ import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
-import com.lacv.jmagrexs.domain.BaseEntity;
+import com.lacv.jmagrexs.domain.BaseDto;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ import java.util.List;
  * @author lcastrillo
  */
 @LabelField("titulo")
-public class TemaDto implements BaseEntity {
+public class TemaDto implements BaseDto {
 
     private static final long serialVersionUID = 1L;
     

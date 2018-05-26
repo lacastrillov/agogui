@@ -29,8 +29,8 @@ public class JornadaMapper extends EntityMapperImpl<Jornada, JornadaDto> impleme
         JornadaDto dto= new JornadaDto();
         if(entity!=null){
             dto.setId(entity.getId());
-            dto.setNombre(entity.getNombre());
             dto.setInstitucion(institucionMapper.entityToDto(entity.getInstitucion()));
+            dto.setNombre(entity.getNombre());
         }
         return dto;
     }
@@ -51,4 +51,30 @@ public class JornadaMapper extends EntityMapperImpl<Jornada, JornadaDto> impleme
         return dtos;
     }
     
+    @Override
+    public Jornada dtoToEntity(JornadaDto dto) {
+        Jornada entity= new Jornada();
+        if(dto!=null){
+            entity.setId(dto.getId());
+            entity.setInstitucion(institucionMapper.dtoToEntity(dto.getInstitucion()));
+            entity.setNombre(dto.getNombre());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Jornada> listDtosToListEntities(List<JornadaDto> dtos){
+        List<Jornada> entities= new ArrayList<>();
+        if(entities!=null){
+            for(JornadaDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

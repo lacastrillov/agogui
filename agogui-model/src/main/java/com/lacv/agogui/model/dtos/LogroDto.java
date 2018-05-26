@@ -11,14 +11,14 @@ import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
-import com.lacv.jmagrexs.domain.BaseEntity;
+import com.lacv.jmagrexs.domain.BaseDto;
 
 /**
  *
  * @author lcastrillo
  */
 @LabelField("id")
-public class LogroDto implements BaseEntity {
+public class LogroDto implements BaseDto {
 
     private static final long serialVersionUID = 1L;
     

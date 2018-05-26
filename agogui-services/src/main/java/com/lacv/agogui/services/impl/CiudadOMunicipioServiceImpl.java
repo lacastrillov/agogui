@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.CiudadOMunicipio;
 import com.lacv.agogui.model.mappers.CiudadOMunicipioMapper;
 import com.lacv.agogui.services.CiudadOMunicipioService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class CiudadOMunicipioServiceImpl extends EntityServiceImpl<CiudadOMunici
     @Override
     public GenericDao getGenericDao(){
         return ciudadOMunicipioJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return ciudadOMunicipioMapper;
     }
     
 }

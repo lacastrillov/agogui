@@ -21,28 +21,28 @@ import org.springframework.stereotype.Component;
 public class InstitucionMapper extends EntityMapperImpl<Institucion, InstitucionDto> implements EntityMapper<Institucion, InstitucionDto> {
     
     @Autowired
-    PaisMapper paisMapper;
+    CiudadOMunicipioMapper ciudadOMunicipioMapper;
     
     @Autowired
     DepartamentoMapper departamentoMapper;
     
     @Autowired
-    CiudadOMunicipioMapper ciudadOMunicipioMapper;
+    PaisMapper paisMapper;
 
     
     @Override
     public InstitucionDto entityToDto(Institucion entity) {
         InstitucionDto dto= new InstitucionDto();
         if(entity!=null){
-            dto.setPais(paisMapper.entityToDto(entity.getPais()));
-            dto.setDepartamento(departamentoMapper.entityToDto(entity.getDepartamento()));
             dto.setCiudadOMunicipio(ciudadOMunicipioMapper.entityToDto(entity.getCiudadOMunicipio()));
             dto.setCorreoElectronico(entity.getCorreoElectronico());
+            dto.setDepartamento(departamentoMapper.entityToDto(entity.getDepartamento()));
             dto.setEstado(entity.getEstado());
             dto.setFechaCreacion(entity.getFechaCreacion());
             dto.setId(entity.getId());
             dto.setNivel(entity.getNivel());
             dto.setNombre(entity.getNombre());
+            dto.setPais(paisMapper.entityToDto(entity.getPais()));
             dto.setRazonSocial(entity.getRazonSocial());
             dto.setTelefono(entity.getTelefono());
         }
@@ -65,4 +65,38 @@ public class InstitucionMapper extends EntityMapperImpl<Institucion, Institucion
         return dtos;
     }
     
+    @Override
+    public Institucion dtoToEntity(InstitucionDto dto) {
+        Institucion entity= new Institucion();
+        if(dto!=null){
+            entity.setCiudadOMunicipio(ciudadOMunicipioMapper.dtoToEntity(dto.getCiudadOMunicipio()));
+            entity.setCorreoElectronico(dto.getCorreoElectronico());
+            entity.setDepartamento(departamentoMapper.dtoToEntity(dto.getDepartamento()));
+            entity.setEstado(dto.getEstado());
+            entity.setFechaCreacion(dto.getFechaCreacion());
+            entity.setId(dto.getId());
+            entity.setNivel(dto.getNivel());
+            entity.setNombre(dto.getNombre());
+            entity.setPais(paisMapper.dtoToEntity(dto.getPais()));
+            entity.setRazonSocial(dto.getRazonSocial());
+            entity.setTelefono(dto.getTelefono());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Institucion> listDtosToListEntities(List<InstitucionDto> dtos){
+        List<Institucion> entities= new ArrayList<>();
+        if(entities!=null){
+            for(InstitucionDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

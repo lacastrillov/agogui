@@ -21,13 +21,13 @@ import org.springframework.stereotype.Component;
 public class DocenteMapper extends EntityMapperImpl<Docente, DocenteDto> implements EntityMapper<Docente, DocenteDto> {
     
     @Autowired
-    PaisMapper paisMapper;
+    CiudadOMunicipioMapper ciudadOMunicipioMapper;
     
     @Autowired
     DepartamentoMapper departamentoMapper;
     
     @Autowired
-    CiudadOMunicipioMapper ciudadOMunicipioMapper;
+    PaisMapper paisMapper;
     
     @Autowired
     SedeMapper sedeMapper;
@@ -38,10 +38,9 @@ public class DocenteMapper extends EntityMapperImpl<Docente, DocenteDto> impleme
         DocenteDto dto= new DocenteDto();
         if(entity!=null){
             dto.setBarrio(entity.getBarrio());
-            dto.setPais(paisMapper.entityToDto(entity.getPais()));
-            dto.setDepartamento(departamentoMapper.entityToDto(entity.getDepartamento()));
             dto.setCiudadOMunicipio(ciudadOMunicipioMapper.entityToDto(entity.getCiudadOMunicipio()));
             dto.setCorreoElectronico(entity.getCorreoElectronico());
+            dto.setDepartamento(departamentoMapper.entityToDto(entity.getDepartamento()));
             dto.setDireccion(entity.getDireccion());
             dto.setDocumentoId(entity.getDocumentoId());
             dto.setEstado(entity.getEstado());
@@ -51,6 +50,7 @@ public class DocenteMapper extends EntityMapperImpl<Docente, DocenteDto> impleme
             dto.setFoto(entity.getFoto());
             dto.setId(entity.getId());
             dto.setNombre(entity.getNombre());
+            dto.setPais(paisMapper.entityToDto(entity.getPais()));
             dto.setPrimerApellido(entity.getPrimerApellido());
             dto.setSede(sedeMapper.entityToDto(entity.getSede()));
             dto.setSegundoApellido(entity.getSegundoApellido());
@@ -79,4 +79,49 @@ public class DocenteMapper extends EntityMapperImpl<Docente, DocenteDto> impleme
         return dtos;
     }
     
+    @Override
+    public Docente dtoToEntity(DocenteDto dto) {
+        Docente entity= new Docente();
+        if(dto!=null){
+            entity.setBarrio(dto.getBarrio());
+            entity.setCiudadOMunicipio(ciudadOMunicipioMapper.dtoToEntity(dto.getCiudadOMunicipio()));
+            entity.setCorreoElectronico(dto.getCorreoElectronico());
+            entity.setDepartamento(departamentoMapper.dtoToEntity(dto.getDepartamento()));
+            entity.setDireccion(dto.getDireccion());
+            entity.setDocumentoId(dto.getDocumentoId());
+            entity.setEstado(dto.getEstado());
+            entity.setEstadoCivil(dto.getEstadoCivil());
+            entity.setFechaNacimiento(dto.getFechaNacimiento());
+            entity.setFechaRegistro(dto.getFechaRegistro());
+            entity.setFoto(dto.getFoto());
+            entity.setId(dto.getId());
+            entity.setNombre(dto.getNombre());
+            entity.setPais(paisMapper.dtoToEntity(dto.getPais()));
+            entity.setPrimerApellido(dto.getPrimerApellido());
+            entity.setSede(sedeMapper.dtoToEntity(dto.getSede()));
+            entity.setSegundoApellido(dto.getSegundoApellido());
+            entity.setSexo(dto.getSexo());
+            entity.setTelefono1(dto.getTelefono1());
+            entity.setTelefono2(dto.getTelefono2());
+            entity.setTipoAcceso(dto.getTipoAcceso());
+            entity.setTituloProfesional(dto.getTituloProfesional());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Docente> listDtosToListEntities(List<DocenteDto> dtos){
+        List<Docente> entities= new ArrayList<>();
+        if(entities!=null){
+            for(DocenteDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

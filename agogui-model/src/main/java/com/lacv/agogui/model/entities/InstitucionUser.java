@@ -6,8 +6,7 @@
 package com.lacv.agogui.model.entities;
 
 import com.lacv.jmagrexs.domain.BaseEntity;
-import com.lacv.jmagrexs.modules.security.entities.User;
-import java.io.Serializable;
+import com.lacv.jmagrexs.modules.security.model.entities.User;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;

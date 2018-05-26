@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Asignatura;
 import com.lacv.agogui.model.mappers.AsignaturaMapper;
 import com.lacv.agogui.services.AsignaturaService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class AsignaturaServiceImpl extends EntityServiceImpl<Asignatura> impleme
     @Override
     public GenericDao getGenericDao(){
         return asignaturaJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return asignaturaMapper;
     }
     
 }

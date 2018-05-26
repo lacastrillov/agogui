@@ -51,4 +51,30 @@ public class AsignaturaMapper extends EntityMapperImpl<Asignatura, AsignaturaDto
         return dtos;
     }
     
+    @Override
+    public Asignatura dtoToEntity(AsignaturaDto dto) {
+        Asignatura entity= new Asignatura();
+        if(dto!=null){
+            entity.setArea(areaMapper.dtoToEntity(dto.getArea()));
+            entity.setId(dto.getId());
+            entity.setNombre(dto.getNombre());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Asignatura> listDtosToListEntities(List<AsignaturaDto> dtos){
+        List<Asignatura> entities= new ArrayList<>();
+        if(entities!=null){
+            for(AsignaturaDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Tema;
 import com.lacv.agogui.model.mappers.TemaMapper;
 import com.lacv.agogui.services.TemaService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class TemaServiceImpl extends EntityServiceImpl<Tema> implements TemaServ
     @Override
     public GenericDao getGenericDao(){
         return temaJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return temaMapper;
     }
     
 }

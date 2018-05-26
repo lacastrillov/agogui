@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Departamento;
 import com.lacv.agogui.model.mappers.DepartamentoMapper;
 import com.lacv.agogui.services.DepartamentoService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class DepartamentoServiceImpl extends EntityServiceImpl<Departamento> imp
     @Override
     public GenericDao getGenericDao(){
         return departamentoJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return departamentoMapper;
     }
     
 }

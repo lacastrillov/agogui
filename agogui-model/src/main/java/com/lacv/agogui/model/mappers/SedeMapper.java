@@ -54,4 +54,33 @@ public class SedeMapper extends EntityMapperImpl<Sede, SedeDto> implements Entit
         return dtos;
     }
     
+    @Override
+    public Sede dtoToEntity(SedeDto dto) {
+        Sede entity= new Sede();
+        if(dto!=null){
+            entity.setCorreoElectronico(dto.getCorreoElectronico());
+            entity.setDireccion(dto.getDireccion());
+            entity.setId(dto.getId());
+            entity.setInstitucion(institucionMapper.dtoToEntity(dto.getInstitucion()));
+            entity.setNombre(dto.getNombre());
+            entity.setTelefono(dto.getTelefono());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Sede> listDtosToListEntities(List<SedeDto> dtos){
+        List<Sede> entities= new ArrayList<>();
+        if(entities!=null){
+            for(SedeDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

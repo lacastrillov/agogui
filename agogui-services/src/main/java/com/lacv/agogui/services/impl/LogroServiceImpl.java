@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Logro;
 import com.lacv.agogui.model.mappers.LogroMapper;
 import com.lacv.agogui.services.LogroService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class LogroServiceImpl extends EntityServiceImpl<Logro> implements LogroS
     @Override
     public GenericDao getGenericDao(){
         return logroJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return logroMapper;
     }
     
 }

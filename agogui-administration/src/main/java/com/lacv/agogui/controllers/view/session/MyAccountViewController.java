@@ -6,14 +6,14 @@
 
 package com.lacv.agogui.controllers.view.session;
 
-import com.lacv.jmagrexs.modules.security.dtos.UserDto;
-import com.lacv.jmagrexs.modules.security.mappers.UserMapper;
+import com.lacv.jmagrexs.modules.security.model.dtos.UserDto;
+import com.lacv.jmagrexs.modules.security.model.mappers.UserMapper;
 import com.lacv.jmagrexs.modules.security.services.UserService;
 import com.lacv.jmagrexs.controller.view.ExtEntityController;
 import com.lacv.jmagrexs.dto.MenuItem;
 import com.lacv.jmagrexs.dto.ProcessButton;
 import com.lacv.jmagrexs.dto.config.EntityConfig;
-import com.lacv.jmagrexs.modules.security.dtos.process.CreatePasswordDto;
+import com.lacv.jmagrexs.modules.security.model.dtos.process.CreatePasswordDto;
 import com.lacv.jmagrexs.modules.security.services.bussiness.SecurityService;
 import java.util.List;
 import javax.annotation.PostConstruct;

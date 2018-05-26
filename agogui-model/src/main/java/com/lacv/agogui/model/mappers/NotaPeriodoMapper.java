@@ -66,4 +66,36 @@ public class NotaPeriodoMapper extends EntityMapperImpl<NotaPeriodo, NotaPeriodo
         return dtos;
     }
     
+    @Override
+    public NotaPeriodo dtoToEntity(NotaPeriodoDto dto) {
+        NotaPeriodo entity= new NotaPeriodo();
+        if(dto!=null){
+            entity.setAsignatura(asignaturaMapper.dtoToEntity(dto.getAsignatura()));
+            entity.setCurso(cursoMapper.dtoToEntity(dto.getCurso()));
+            entity.setDesempenio(dto.getDesempenio());
+            entity.setEstudiante(estudianteMapper.dtoToEntity(dto.getEstudiante()));
+            entity.setFormato(dto.getFormato());
+            entity.setId(dto.getId());
+            entity.setNotaNumero(dto.getNotaNumero());
+            entity.setNotaTexto(dto.getNotaTexto());
+            entity.setPeriodo(periodoMapper.dtoToEntity(dto.getPeriodo()));
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<NotaPeriodo> listDtosToListEntities(List<NotaPeriodoDto> dtos){
+        List<NotaPeriodo> entities= new ArrayList<>();
+        if(entities!=null){
+            for(NotaPeriodoDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

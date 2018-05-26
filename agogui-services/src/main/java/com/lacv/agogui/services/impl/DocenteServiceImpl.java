@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Docente;
 import com.lacv.agogui.model.mappers.DocenteMapper;
 import com.lacv.agogui.services.DocenteService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class DocenteServiceImpl extends EntityServiceImpl<Docente> implements Do
     @Override
     public GenericDao getGenericDao(){
         return docenteJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return docenteMapper;
     }
     
 }

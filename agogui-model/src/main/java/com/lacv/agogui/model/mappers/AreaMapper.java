@@ -52,4 +52,31 @@ public class AreaMapper extends EntityMapperImpl<Area, AreaDto> implements Entit
         return dtos;
     }
     
+    @Override
+    public Area dtoToEntity(AreaDto dto) {
+        Area entity= new Area();
+        if(dto!=null){
+            entity.setDescripcion(dto.getDescripcion());
+            entity.setId(dto.getId());
+            entity.setInstitucion(institucionMapper.dtoToEntity(dto.getInstitucion()));
+            entity.setNombre(dto.getNombre());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Area> listDtosToListEntities(List<AreaDto> dtos){
+        List<Area> entities= new ArrayList<>();
+        if(entities!=null){
+            for(AreaDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

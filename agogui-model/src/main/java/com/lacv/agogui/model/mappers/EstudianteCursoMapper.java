@@ -54,4 +54,30 @@ public class EstudianteCursoMapper extends EntityMapperImpl<EstudianteCurso, Est
         return dtos;
     }
     
+    @Override
+    public EstudianteCurso dtoToEntity(EstudianteCursoDto dto) {
+        EstudianteCurso entity= new EstudianteCurso();
+        if(dto!=null){
+            entity.setCurso(cursoMapper.dtoToEntity(dto.getCurso()));
+            entity.setEstudiante(estudianteMapper.dtoToEntity(dto.getEstudiante()));
+            entity.setId(dto.getId());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<EstudianteCurso> listDtosToListEntities(List<EstudianteCursoDto> dtos){
+        List<EstudianteCurso> entities= new ArrayList<>();
+        if(entities!=null){
+            for(EstudianteCursoDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

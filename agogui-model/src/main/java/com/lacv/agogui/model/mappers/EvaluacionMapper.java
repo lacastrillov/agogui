@@ -68,4 +68,38 @@ public class EvaluacionMapper extends EntityMapperImpl<Evaluacion, EvaluacionDto
         return dtos;
     }
     
+    @Override
+    public Evaluacion dtoToEntity(EvaluacionDto dto) {
+        Evaluacion entity= new Evaluacion();
+        if(dto!=null){
+            entity.setAsignatura(asignaturaMapper.dtoToEntity(dto.getAsignatura()));
+            entity.setCurso(cursoMapper.dtoToEntity(dto.getCurso()));
+            entity.setDescripcion(dto.getDescripcion());
+            entity.setDocente(docenteMapper.dtoToEntity(dto.getDocente()));
+            entity.setFecha(dto.getFecha());
+            entity.setId(dto.getId());
+            entity.setNumero(dto.getNumero());
+            entity.setPeriodo(periodoMapper.dtoToEntity(dto.getPeriodo()));
+            entity.setPorcentaje(dto.getPorcentaje());
+            entity.setTipoCalificacionLogros(dto.getTipoCalificacionLogros());
+            entity.setTitulo(dto.getTitulo());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Evaluacion> listDtosToListEntities(List<EvaluacionDto> dtos){
+        List<Evaluacion> entities= new ArrayList<>();
+        if(entities!=null){
+            for(EvaluacionDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

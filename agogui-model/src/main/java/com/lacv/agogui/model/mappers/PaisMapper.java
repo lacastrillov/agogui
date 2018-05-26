@@ -47,4 +47,29 @@ public class PaisMapper extends EntityMapperImpl<Pais, PaisDto> implements Entit
         return dtos;
     }
     
+    @Override
+    public Pais dtoToEntity(PaisDto dto) {
+        Pais entity= new Pais();
+        if(dto!=null){
+            entity.setId(dto.getId());
+            entity.setNombre(dto.getNombre());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Pais> listDtosToListEntities(List<PaisDto> dtos){
+        List<Pais> entities= new ArrayList<>();
+        if(entities!=null){
+            for(PaisDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

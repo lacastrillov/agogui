@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Jornada;
 import com.lacv.agogui.model.mappers.JornadaMapper;
 import com.lacv.agogui.services.JornadaService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class JornadaServiceImpl extends EntityServiceImpl<Jornada> implements Jo
     @Override
     public GenericDao getGenericDao(){
         return jornadaJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return jornadaMapper;
     }
     
 }

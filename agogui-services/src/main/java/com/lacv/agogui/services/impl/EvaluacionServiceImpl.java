@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Evaluacion;
 import com.lacv.agogui.model.mappers.EvaluacionMapper;
 import com.lacv.agogui.services.EvaluacionService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class EvaluacionServiceImpl extends EntityServiceImpl<Evaluacion> impleme
     @Override
     public GenericDao getGenericDao(){
         return evaluacionJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return evaluacionMapper;
     }
     
 }

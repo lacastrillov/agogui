@@ -51,4 +51,30 @@ public class CiudadOMunicipioMapper extends EntityMapperImpl<CiudadOMunicipio, C
         return dtos;
     }
     
+    @Override
+    public CiudadOMunicipio dtoToEntity(CiudadOMunicipioDto dto) {
+        CiudadOMunicipio entity= new CiudadOMunicipio();
+        if(dto!=null){
+            entity.setDepartamento(departamentoMapper.dtoToEntity(dto.getDepartamento()));
+            entity.setId(dto.getId());
+            entity.setNombre(dto.getNombre());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<CiudadOMunicipio> listDtosToListEntities(List<CiudadOMunicipioDto> dtos){
+        List<CiudadOMunicipio> entities= new ArrayList<>();
+        if(entities!=null){
+            for(CiudadOMunicipioDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

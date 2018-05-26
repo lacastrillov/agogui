@@ -40,8 +40,8 @@ public class CursoMapper extends EntityMapperImpl<Curso, CursoDto> implements En
             dto.setGrado(gradoMapper.entityToDto(entity.getGrado()));
             dto.setId(entity.getId());
             dto.setJornada(jornadaMapper.entityToDto(entity.getJornada()));
-            dto.setSede(sedeMapper.entityToDto(entity.getSede()));
             dto.setNombre(entity.getNombre());
+            dto.setSede(sedeMapper.entityToDto(entity.getSede()));
         }
         return dto;
     }
@@ -62,4 +62,35 @@ public class CursoMapper extends EntityMapperImpl<Curso, CursoDto> implements En
         return dtos;
     }
     
+    @Override
+    public Curso dtoToEntity(CursoDto dto) {
+        Curso entity= new Curso();
+        if(dto!=null){
+            entity.setActivo(dto.getActivo());
+            entity.setAnioLectivo(dto.getAnioLectivo());
+            entity.setFechaCreacion(dto.getFechaCreacion());
+            entity.setGrado(gradoMapper.dtoToEntity(dto.getGrado()));
+            entity.setId(dto.getId());
+            entity.setJornada(jornadaMapper.dtoToEntity(dto.getJornada()));
+            entity.setNombre(dto.getNombre());
+            entity.setSede(sedeMapper.dtoToEntity(dto.getSede()));
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Curso> listDtosToListEntities(List<CursoDto> dtos){
+        List<Curso> entities= new ArrayList<>();
+        if(entities!=null){
+            for(CursoDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

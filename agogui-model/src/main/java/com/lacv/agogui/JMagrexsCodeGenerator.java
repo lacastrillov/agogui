@@ -5,7 +5,6 @@
  */
 package com.lacv.agogui;
 
-import com.lacv.agogui.model.entities.InstitucionUser;
 import com.lacv.jmagrexs.generator.CodeGenerator;
 
 
@@ -21,7 +20,7 @@ public class JMagrexsCodeGenerator {
         
         //codeGenerator.generate("com.lacv.agogui.model.entities");
         
-        codeGenerator.generate(InstitucionUser.class);
+        codeGenerator.getMapperGenerator().generate("com.lacv.agogui.model.entities");
     }
     
 }

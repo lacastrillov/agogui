@@ -62,4 +62,35 @@ public class NotaFinalMapper extends EntityMapperImpl<NotaFinal, NotaFinalDto> i
         return dtos;
     }
     
+    @Override
+    public NotaFinal dtoToEntity(NotaFinalDto dto) {
+        NotaFinal entity= new NotaFinal();
+        if(dto!=null){
+            entity.setAsignatura(asignaturaMapper.dtoToEntity(dto.getAsignatura()));
+            entity.setCurso(cursoMapper.dtoToEntity(dto.getCurso()));
+            entity.setDesempenio(dto.getDesempenio());
+            entity.setEstudiante(estudianteMapper.dtoToEntity(dto.getEstudiante()));
+            entity.setFormato(dto.getFormato());
+            entity.setId(dto.getId());
+            entity.setNotaNumero(dto.getNotaNumero());
+            entity.setNotaTexto(dto.getNotaTexto());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<NotaFinal> listDtosToListEntities(List<NotaFinalDto> dtos){
+        List<NotaFinal> entities= new ArrayList<>();
+        if(entities!=null){
+            for(NotaFinalDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

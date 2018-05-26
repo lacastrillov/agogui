@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.NotaEvaluacion;
 import com.lacv.agogui.model.mappers.NotaEvaluacionMapper;
 import com.lacv.agogui.services.NotaEvaluacionService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class NotaEvaluacionServiceImpl extends EntityServiceImpl<NotaEvaluacion>
     @Override
     public GenericDao getGenericDao(){
         return notaEvaluacionJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return notaEvaluacionMapper;
     }
     
 }

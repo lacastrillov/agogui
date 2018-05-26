@@ -65,4 +65,35 @@ public class NotaEvaluacionMapper extends EntityMapperImpl<NotaEvaluacion, NotaE
         return dtos;
     }
     
+    @Override
+    public NotaEvaluacion dtoToEntity(NotaEvaluacionDto dto) {
+        NotaEvaluacion entity= new NotaEvaluacion();
+        if(dto!=null){
+            entity.setAsignatura(asignaturaMapper.dtoToEntity(dto.getAsignatura()));
+            entity.setCurso(cursoMapper.dtoToEntity(dto.getCurso()));
+            entity.setEstudiante(estudianteMapper.dtoToEntity(dto.getEstudiante()));
+            entity.setEvaluacion(evaluacionMapper.dtoToEntity(dto.getEvaluacion()));
+            entity.setFormato(dto.getFormato());
+            entity.setId(dto.getId());
+            entity.setNotaNumero(dto.getNotaNumero());
+            entity.setNotaTexto(dto.getNotaTexto());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<NotaEvaluacion> listDtosToListEntities(List<NotaEvaluacionDto> dtos){
+        List<NotaEvaluacion> entities= new ArrayList<>();
+        if(entities!=null){
+            for(NotaEvaluacionDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

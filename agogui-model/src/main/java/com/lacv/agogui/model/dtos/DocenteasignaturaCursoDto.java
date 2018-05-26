@@ -7,18 +7,17 @@ package com.lacv.agogui.model.dtos;
 
 import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
-import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.TextField;
-import com.lacv.jmagrexs.domain.BaseEntity;
+import com.lacv.jmagrexs.domain.BaseDto;
 
 /**
  *
  * @author lcastrillo
  */
 @LabelField("id")
-public class DocenteasignaturaCursoDto implements BaseEntity {
+public class DocenteasignaturaCursoDto implements BaseDto {
 
     private static final long serialVersionUID = 1L;
     

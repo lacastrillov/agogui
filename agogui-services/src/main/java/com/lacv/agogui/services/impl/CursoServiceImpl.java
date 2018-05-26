@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Curso;
 import com.lacv.agogui.model.mappers.CursoMapper;
 import com.lacv.agogui.services.CursoService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class CursoServiceImpl extends EntityServiceImpl<Curso> implements CursoS
     @Override
     public GenericDao getGenericDao(){
         return cursoJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return cursoMapper;
     }
     
 }

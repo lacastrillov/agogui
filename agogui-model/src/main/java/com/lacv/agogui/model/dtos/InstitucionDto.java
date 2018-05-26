@@ -12,7 +12,7 @@ import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.Size;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.annotation.TypeFormField;
-import com.lacv.jmagrexs.domain.BaseEntity;
+import com.lacv.jmagrexs.domain.BaseDto;
 import com.lacv.jmagrexs.enums.FieldType;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
  * @author lcastrillo
  */
 @LabelField("nombre")
-public class InstitucionDto implements BaseEntity {
+public class InstitucionDto implements BaseDto {
 
     private static final long serialVersionUID = 1L;
     

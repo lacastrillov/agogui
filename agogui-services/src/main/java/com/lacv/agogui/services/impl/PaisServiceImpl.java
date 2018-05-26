@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Pais;
 import com.lacv.agogui.model.mappers.PaisMapper;
 import com.lacv.agogui.services.PaisService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class PaisServiceImpl extends EntityServiceImpl<Pais> implements PaisServ
     @Override
     public GenericDao getGenericDao(){
         return paisJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return paisMapper;
     }
     
 }

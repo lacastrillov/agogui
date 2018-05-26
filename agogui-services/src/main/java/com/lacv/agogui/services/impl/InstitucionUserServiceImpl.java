@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.InstitucionUser;
 import com.lacv.agogui.model.mappers.InstitucionUserMapper;
 import com.lacv.agogui.services.InstitucionUserService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class InstitucionUserServiceImpl extends EntityServiceImpl<InstitucionUse
     @Override
     public GenericDao getGenericDao(){
         return institucionUserJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return institucionUserMapper;
     }
     
 }

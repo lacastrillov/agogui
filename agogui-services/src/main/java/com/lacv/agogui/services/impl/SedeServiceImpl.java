@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Sede;
 import com.lacv.agogui.model.mappers.SedeMapper;
 import com.lacv.agogui.services.SedeService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class SedeServiceImpl extends EntityServiceImpl<Sede> implements SedeServ
     @Override
     public GenericDao getGenericDao(){
         return sedeJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return sedeMapper;
     }
     
 }

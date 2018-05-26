@@ -51,4 +51,30 @@ public class TemaMapper extends EntityMapperImpl<Tema, TemaDto> implements Entit
         return dtos;
     }
     
+    @Override
+    public Tema dtoToEntity(TemaDto dto) {
+        Tema entity= new Tema();
+        if(dto!=null){
+            entity.setAsignatura(asignaturaMapper.dtoToEntity(dto.getAsignatura()));
+            entity.setId(dto.getId());
+            entity.setTitulo(dto.getTitulo());
+        }
+        return entity;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Tema> listDtosToListEntities(List<TemaDto> dtos){
+        List<Tema> entities= new ArrayList<>();
+        if(entities!=null){
+            for(TemaDto dto: dtos){
+                entities.add(dtoToEntity(dto));
+            }
+        }
+        return entities;
+    }
+
 }

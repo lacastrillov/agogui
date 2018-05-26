@@ -12,6 +12,7 @@ import com.lacv.agogui.model.entities.Grado;
 import com.lacv.agogui.model.mappers.GradoMapper;
 import com.lacv.agogui.services.GradoService;
 import com.lacv.jmagrexs.dao.GenericDao;
+import com.lacv.jmagrexs.mapper.EntityMapper;
 import com.lacv.jmagrexs.service.EntityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class GradoServiceImpl extends EntityServiceImpl<Grado> implements GradoS
     @Override
     public GenericDao getGenericDao(){
         return gradoJpa;
+    }
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return gradoMapper;
     }
     
 }
