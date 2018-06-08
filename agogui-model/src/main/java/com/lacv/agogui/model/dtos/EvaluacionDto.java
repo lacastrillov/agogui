@@ -35,18 +35,18 @@ public class EvaluacionDto implements BaseDto {
     @NotNull
     @Size(min=1,max=150)
     @ColumnWidth(200)
-    @TextField("Titulo")
+    @TextField("T&iacute;tulo")
     private String titulo;
     
     @Order(3)
     @Size(max=65535)
     @ColumnWidth(200)
-    @TextField("Descripcion")
+    @TextField("Descripci&oacute;n")
     private String descripcion;
     
     @Order(4)
     @ColumnWidth(200)
-    @TextField("Numero")
+    @TextField("N&uacute;mero")
     private Integer numero;
     
     @Order(5)
@@ -76,7 +76,7 @@ public class EvaluacionDto implements BaseDto {
     
     @Order(10)
     @ColumnWidth(200)
-    @TextField("Tipom Calificacion Logros")
+    @TextField("Tipo Calificaci&oacute;n Logros")
     private Integer tipoCalificacionLogros;
     
     @Order(11)
