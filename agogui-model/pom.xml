@@ -8,4 +8,60 @@
     </parent>
     <artifactId>agogui-model</artifactId>
     <packaging>jar</packaging>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+    
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <property>
+                    <name>!env</name>
+                </property>
+            </activation>
+            <properties>
+                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+                <jdbc.url>jdbc:mysql://localhost:3306/agogui_sch?useSSL=false</jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>Experian25</jdbc.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>test</value>
+                </property>
+            </activation>
+            <properties>
+                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+                <jdbc.url>jdbc:mysql://localhost:3306/agogui_sch?useSSL=false</jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>calsatrilievlo</jdbc.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>prod</value>
+                </property>
+            </activation>
+            <properties>
+                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+                <jdbc.url>jdbc:mysql://localhost:3306/agogui_sch?useSSL=false</jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>calsatrilievlo</jdbc.password>
+            </properties>
+        </profile>
+        
+    </profiles>
 </project>

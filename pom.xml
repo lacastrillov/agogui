@@ -90,10 +90,7 @@
             <properties>
                 <static.domain.url>http://localhost:8082/</static.domain.url>
                 <static.folder>C:\apps\apache-tomcat-9.0.12-agogui\webapps</static.folder>
-                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://localhost:3306/agogui_sch?useSSL=false</jdbc.url>
-                <jdbc.username>root</jdbc.username>
-                <jdbc.password>Experian25</jdbc.password>
+                
                 <mail.host>smtp.gmail.com</mail.host>
                 <mail.port>587</mail.port>
                 <mail.username>enviocorreodot1@gmail.com</mail.username>
@@ -112,10 +109,7 @@
             <properties>
                 <static.domain.url>http://186.83.137.240:8084/</static.domain.url>
                 <static.folder>/opt/apache-tomcat-9.0.8-agogui/webapps/</static.folder>
-                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://localhost:3306/agogui_sch?useSSL=false</jdbc.url>
-                <jdbc.username>root</jdbc.username>
-                <jdbc.password>calsatrilievlo</jdbc.password>
+                
                 <mail.host>smtp.gmail.com</mail.host>
                 <mail.port>587</mail.port>
                 <mail.username>enviocorreodot1@gmail.com</mail.username>
@@ -134,10 +128,7 @@
             <properties>
                 <static.domain.url>http://www.agogui.tk/</static.domain.url>
                 <static.folder>/opt/apache-tomcat-9.0.8-agogui/webapps/</static.folder>
-                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://localhost:3306/agogui_sch?useSSL=false</jdbc.url>
-                <jdbc.username>root</jdbc.username>
-                <jdbc.password>calsatrilievlo</jdbc.password>
+                
                 <mail.host>smtp.gmail.com</mail.host>
                 <mail.port>587</mail.port>
                 <mail.username>enviocorreodot1@gmail.com</mail.username>
