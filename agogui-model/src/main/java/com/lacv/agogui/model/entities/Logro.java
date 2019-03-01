@@ -17,6 +17,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 
 /**
  *
@@ -40,12 +42,15 @@ public class Logro implements BaseEntity {
     @Column(name = "descripcion")
     private String descripcion;
     @JoinColumn(name = "id_tema", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Tema tema;
     @JoinColumn(name = "id_competencia", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Competencia competencia;
     @JoinColumn(name = "id_periodo", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Periodo periodo;
 

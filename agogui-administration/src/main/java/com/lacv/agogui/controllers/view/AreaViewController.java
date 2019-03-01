@@ -7,6 +7,7 @@
 package com.lacv.agogui.controllers.view;
 
 import com.lacv.agogui.model.dtos.AreaDto;
+import com.lacv.agogui.model.entities.Asignatura;
 import com.lacv.agogui.model.mappers.AreaMapper;
 import com.lacv.agogui.services.AreaService;
 import com.lacv.jmagrexs.controller.view.ExtEntityController;
@@ -45,6 +46,9 @@ public class AreaViewController extends ExtEntityController {
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
         view.setDefaultOrder("nombre", "ASC");
+        
+        view.addChildExtView("asignatura", Asignatura.class, EntityConfig.TCV_1_TO_N);
+        
         super.addControlMapping(view);
         
         MenuItem menuParent= new MenuItem("Asignaturas");

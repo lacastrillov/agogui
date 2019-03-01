@@ -20,6 +20,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 
 /**
  *
@@ -52,15 +54,19 @@ public class NotaPeriodo implements BaseEntity {
     @Column(name = "formato")
     private String formato;
     @JoinColumn(name = "id_estudiante", referencedColumnName = "codigo")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Estudiante estudiante;
     @JoinColumn(name = "id_curso", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Curso curso;
     @JoinColumn(name = "id_periodo", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Periodo periodo;
     @JoinColumn(name = "id_asignatura", referencedColumnName = "codigo")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Asignatura asignatura;
 

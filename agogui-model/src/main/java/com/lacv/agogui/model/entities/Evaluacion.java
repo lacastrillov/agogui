@@ -26,6 +26,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 
 /**
  *
@@ -62,15 +64,19 @@ public class Evaluacion implements BaseEntity {
     @Column(name = "tipo_calificacion_logros")
     private Integer tipoCalificacionLogros;
     @JoinColumn(name = "id_docente", referencedColumnName = "codigo")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Docente docente;
     @JoinColumn(name = "id_asignatura", referencedColumnName = "codigo")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Asignatura asignatura;
     @JoinColumn(name = "id_curso", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Curso curso;
     @JoinColumn(name = "id_periodo", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Periodo periodo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "evaluacion")

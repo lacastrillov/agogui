@@ -7,6 +7,8 @@
 package com.lacv.agogui.controllers.view;
 
 import com.lacv.agogui.model.dtos.DocenteDto;
+import com.lacv.agogui.model.entities.DocenteAsignatura;
+import com.lacv.agogui.model.entities.DocenteasignaturaCurso;
 import com.lacv.agogui.model.mappers.DocenteMapper;
 import com.lacv.agogui.services.DocenteService;
 import com.lacv.jmagrexs.controller.view.ExtEntityController;
@@ -45,6 +47,10 @@ public class DocenteViewController extends ExtEntityController {
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
         view.setDefaultOrder("nombre", "ASC");
+        
+        view.addChildExtView("docenteAsignatura", DocenteAsignatura.class, EntityConfig.TCV_1_TO_N);
+        view.addChildExtView("docenteasignaturaCurso", DocenteasignaturaCurso.class, EntityConfig.TCV_1_TO_N);
+        
         super.addControlMapping(view);
         
         MenuItem menuParent= new MenuItem("Docentes", 4);

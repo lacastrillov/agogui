@@ -19,6 +19,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 
 /**
  *
@@ -41,9 +43,11 @@ public class DocenteAsignatura implements BaseEntity {
     @Column(name = "habilitado")
     private String habilitado;
     @JoinColumn(name = "codigo_docente", referencedColumnName = "codigo")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Docente docente;
     @JoinColumn(name = "codigo_asignatura", referencedColumnName = "codigo")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Asignatura asignatura;
 

@@ -35,7 +35,7 @@ public class EstudianteDto implements BaseDto {
     @Order(2)
     @NotNull
     @ColumnWidth(200)
-    @TextField("DocumentoId")
+    @TextField("Documento Id")
     private long documentoId;
     
     @Order(3)
@@ -63,6 +63,7 @@ public class EstudianteDto implements BaseDto {
     @Size(max=1)
     @ColumnWidth(200)
     @TextField("Sexo")
+    @TypeFormField(value = FieldType.LIST, data = {"F:Femenino", "M:Masculino"})
     private String sexo;
     
     @Order(7)

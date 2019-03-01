@@ -44,6 +44,7 @@ public class InstitucionViewController extends ExtEntityController {
         view.setPluralEntityTitle("Instituciones");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
+        view.setLabelPlusId(true);
         view.setDefaultOrder("nombre", "ASC");
         super.addControlMapping(view);
         

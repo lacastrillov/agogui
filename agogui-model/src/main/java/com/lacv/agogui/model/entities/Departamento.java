@@ -22,6 +22,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 
 /**
  *
@@ -48,6 +50,7 @@ public class Departamento implements BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento")
     private List<CiudadOMunicipio> ciudadOMunicipioList;
     @JoinColumn(name = "id_pais", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Pais pais;
 

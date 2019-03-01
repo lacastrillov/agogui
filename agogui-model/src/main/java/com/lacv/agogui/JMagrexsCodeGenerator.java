@@ -5,6 +5,7 @@
  */
 package com.lacv.agogui;
 
+import com.lacv.agogui.model.entities.Agrupacion;
 import com.lacv.jmagrexs.generator.CodeGenerator;
 
 
@@ -18,9 +19,9 @@ public class JMagrexsCodeGenerator {
         System.out.print("Hola Generador");
         CodeGenerator codeGenerator= new CodeGenerator(JMagrexsCodeGenerator.class, "com.lacv.agogui");
         
-        //codeGenerator.generate("com.lacv.agogui.model.entities");
+        codeGenerator.generate(Agrupacion.class);
         
-        codeGenerator.getMapperGenerator().generate("com.lacv.agogui.model.entities");
+        //codeGenerator.getMapperGenerator().generate("com.lacv.agogui.model.entities");
     }
     
 }

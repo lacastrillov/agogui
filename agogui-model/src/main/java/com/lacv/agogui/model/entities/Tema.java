@@ -21,6 +21,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 
 /**
  *
@@ -44,6 +46,7 @@ public class Tema implements BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tema")
     private List<Logro> logroList;
     @JoinColumn(name = "codigo_asignatura", referencedColumnName = "codigo")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Asignatura asignatura;
 

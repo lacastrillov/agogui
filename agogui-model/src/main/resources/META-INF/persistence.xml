@@ -45,6 +45,7 @@
     <class>com.lacv.jmagrexs.modules.security.model.entities.WebResource</class>
     <class>com.lacv.jmagrexs.modules.security.model.entities.User</class>
     <class>com.lacv.jmagrexs.modules.security.model.entities.Role</class>
+    <class>com.lacv.agogui.model.entities.Agrupacion</class>
     <properties>
       <property name="eclipselink.cache.shared.default" value="false"/>
       <property name="wildfly.jpa.default-unit" value="true"/>

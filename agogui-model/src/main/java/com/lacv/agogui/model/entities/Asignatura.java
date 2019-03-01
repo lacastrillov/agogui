@@ -20,6 +20,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 
 /**
  *
@@ -41,6 +43,7 @@ public class Asignatura implements BaseEntity {
     @Column(name = "nombre")
     private String nombre;
     @JoinColumn(name = "id_area", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Area area;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignatura")

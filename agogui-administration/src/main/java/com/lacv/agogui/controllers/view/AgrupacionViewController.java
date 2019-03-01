@@ -6,10 +6,9 @@
 
 package com.lacv.agogui.controllers.view;
 
-import com.lacv.agogui.model.dtos.CursoDto;
-import com.lacv.agogui.model.entities.EstudianteCurso;
-import com.lacv.agogui.model.mappers.CursoMapper;
-import com.lacv.agogui.services.CursoService;
+import com.lacv.agogui.model.dtos.AgrupacionDto;
+import com.lacv.agogui.model.mappers.AgrupacionMapper;
+import com.lacv.agogui.services.AgrupacionService;
 import com.lacv.jmagrexs.controller.view.ExtEntityController;
 import com.lacv.jmagrexs.dto.MenuItem;
 import com.lacv.jmagrexs.dto.config.EntityConfig;
@@ -25,14 +24,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author lacastrillov
  */
 @Controller
-@RequestMapping(value="/vista/curso")
-public class CursoViewController extends ExtEntityController {
+@RequestMapping(value="/vista/agrupacion")
+public class AgrupacionViewController extends ExtEntityController {
     
     @Autowired
-    CursoService cursoService;
+    AgrupacionService agrupacionService;
     
     @Autowired
-    CursoMapper cursoMapper;
+    AgrupacionMapper agrupacionMapper;
     
     @Autowired
     SecurityService securityService;
@@ -40,19 +39,16 @@ public class CursoViewController extends ExtEntityController {
     
     @PostConstruct
     public void init(){
-        EntityConfig view= new EntityConfig("curso", cursoService, CursoDto.class);
-        view.setSingularEntityTitle("Curso");
-        view.setPluralEntityTitle("Cursos");
+        EntityConfig view= new EntityConfig("agrupacion", agrupacionService, AgrupacionDto.class);
+        view.setSingularEntityTitle("Agrupacion");
+        view.setPluralEntityTitle("Agrupacions");
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
         view.setDefaultOrder("id", "DESC");
-        
-        view.addChildExtView("estudianteCurso", EstudianteCurso.class, EntityConfig.TCV_1_TO_N);
-        
         super.addControlMapping(view);
         
-        MenuItem menuParent= new MenuItem("Instituci&oacute;n", 1);
-        MenuItem menuItem= new MenuItem("curso", "Gestionar Cursos", 6);
+        MenuItem menuParent= new MenuItem("Entidades", 1);
+        MenuItem menuItem= new MenuItem("agrupacion", "Gestionar Agrupacions", 1);
         menuParent.addSubMenu(menuItem);
         menuComponent.addItemMenu(menuParent);
     }

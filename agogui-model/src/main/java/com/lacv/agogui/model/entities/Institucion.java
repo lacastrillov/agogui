@@ -23,6 +23,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 
 /**
  *
@@ -68,12 +70,15 @@ public class Institucion implements BaseEntity {
     @Column(name = "estado")
     private String estado;
     @JoinColumn(name = "id_pais", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Pais pais;
     @JoinColumn(name = "id_departamento", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private Departamento departamento;
     @JoinColumn(name = "id_ciudad_o_municipio", referencedColumnName = "id")
+    @JoinFetch(JoinFetchType.OUTER)
     @ManyToOne(optional = false)
     private CiudadOMunicipio ciudadOMunicipio;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucion")
