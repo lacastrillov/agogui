@@ -5,10 +5,12 @@
  */
 package com.lacv.agogui.model.dtos.config;
 
+import com.lacv.jmagrexs.annotation.EntityCombobox;
 import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.TextField;
 import com.lacv.jmagrexs.annotation.TypeFormField;
 import com.lacv.jmagrexs.enums.FieldType;
+import com.lacv.jmagrexs.modules.security.model.entities.User;
 import java.util.List;
 
 /**
@@ -55,6 +57,11 @@ public class PortalConfigDto {
     @TextField("Estado CRON")
     @TypeFormField(value=FieldType.RADIOS, data={"OFF","ON"})
     private String cronStatus;
+    
+    @Order(9)
+    @TextField("Usuario")
+    @EntityCombobox(User.class)
+    private Integer user;
     
     @TextField("Ubicaciones")
     private List<String> locations;
@@ -193,6 +200,20 @@ public class PortalConfigDto {
      */
     public void setCronStatus(String cronStatus) {
         this.cronStatus = cronStatus;
+    }
+
+    /**
+     * @return the user
+     */
+    public Integer getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(Integer user) {
+        this.user = user;
     }
     
 }

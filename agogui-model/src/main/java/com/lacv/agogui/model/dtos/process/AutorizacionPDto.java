@@ -5,6 +5,9 @@
  */
 package com.lacv.agogui.model.dtos.process;
 
+import com.lacv.jmagrexs.annotation.EntityCombobox;
+import com.lacv.jmagrexs.modules.security.model.entities.Authorization;
+
 /**
  *
  * @author grupot
@@ -12,6 +15,9 @@ package com.lacv.agogui.model.dtos.process;
 public class AutorizacionPDto {
     
     private String nombre;
+    
+    @EntityCombobox(Authorization.class)
+    private Integer authorization;
     
     
     public AutorizacionPDto(){
@@ -33,6 +39,20 @@ public class AutorizacionPDto {
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the authorization
+     */
+    public Integer getAuthorization() {
+        return authorization;
+    }
+
+    /**
+     * @param authorization the authorization to set
+     */
+    public void setAuthorization(Integer authorization) {
+        this.authorization = authorization;
     }
     
     
