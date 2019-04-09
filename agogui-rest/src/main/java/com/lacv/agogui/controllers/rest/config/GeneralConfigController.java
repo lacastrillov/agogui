@@ -8,6 +8,7 @@ package com.lacv.agogui.controllers.rest.config;
 
 
 import com.lacv.agogui.model.dtos.config.PortalConfigDto;
+import com.lacv.agogui.services.config.BusinessListsConfigService;
 import com.lacv.agogui.services.config.ContactConfigService;
 import com.lacv.agogui.services.config.PortalConfigService;
 import com.lacv.jmagrexs.controller.rest.RestConfigurationController;
@@ -34,6 +35,9 @@ public class GeneralConfigController extends RestConfigurationController {
     ContactConfigService contactConfigService;
     
     @Autowired
+    BusinessListsConfigService businessListsConfigService;
+    
+    @Autowired
     WebFileService webFileService;
     
     
@@ -41,6 +45,7 @@ public class GeneralConfigController extends RestConfigurationController {
     public void init(){
         super.addControlConfigurationObject("portalConfig", portalConfigService);
         super.addControlConfigurationObject("contactConfig", contactConfigService);
+        super.addControlConfigurationObject("businessListsConfig", businessListsConfigService);
     }
     
     public String portalConfigFiles(PortalConfigDto portalConfig, String fieldName, String fileName, String fileType, int fileSize, InputStream is){

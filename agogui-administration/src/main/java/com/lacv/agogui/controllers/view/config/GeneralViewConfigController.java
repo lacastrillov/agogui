@@ -6,6 +6,7 @@
 
 package com.lacv.agogui.controllers.view.config;
 
+import com.lacv.agogui.model.dtos.config.BusinessListsConfigDto;
 import com.lacv.agogui.model.dtos.config.ContactConfigDto;
 import com.lacv.agogui.model.dtos.config.PortalConfigDto;
 import com.lacv.jmagrexs.controller.view.ExtConfigurationObjectController;
@@ -37,6 +38,7 @@ public class GeneralViewConfigController extends ExtConfigurationObjectControlle
         view.setMainConfigurationTitle("Gestionar Configuraci&oacute;n General");
         view.addControlConfigurationObjectView("portalConfig", "Configuraci&oacute;n del Portal", PortalConfigDto.class);
         view.addControlConfigurationObjectView("contactConfig", "Configuraci&oacute;n de Contacto", ContactConfigDto.class);
+        view.addControlConfigurationObjectView("businessListsConfig", "Listas de Configuraci&oacute;n", BusinessListsConfigDto.class);
         view.addMultipartFormConfig("portalConfig");
         view.setVisibleSeeAllButton(true);
         
