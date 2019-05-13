@@ -7,10 +7,12 @@
 package com.lacv.agogui.controllers.view;
 
 import com.lacv.agogui.model.dtos.EstudianteDto;
+import com.lacv.agogui.model.dtos.process.ChangeUserStatusPDto;
 import com.lacv.agogui.model.mappers.EstudianteMapper;
 import com.lacv.agogui.services.EstudianteService;
 import com.lacv.jmagrexs.controller.view.ExtEntityController;
 import com.lacv.jmagrexs.dto.MenuItem;
+import com.lacv.jmagrexs.dto.ProcessGlobalAction;
 import com.lacv.jmagrexs.dto.config.EntityConfig;
 import com.lacv.jmagrexs.modules.security.services.bussiness.SecurityService;
 import java.util.List;
@@ -45,6 +47,15 @@ public class EstudianteViewController extends ExtEntityController {
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
         view.setDefaultOrder("nombre", "ASC");
+        
+        ProcessGlobalAction changeUserStatus= new ProcessGlobalAction();
+        changeUserStatus.setMainProcessRef("processStudent");
+        changeUserStatus.setProcessName("changeUserStatus");
+        changeUserStatus.setProcessTitle("Cambiar Estado Estudiante");
+        changeUserStatus.setDtoClass(ChangeUserStatusPDto.class);
+        changeUserStatus.setIconUrl("/img/process_icons/settings.png");
+        view.addProcessGlobalActions(changeUserStatus);
+        
         super.addControlMapping(view);
         
         MenuItem menuParent= new MenuItem("Estudiantes", 5);
