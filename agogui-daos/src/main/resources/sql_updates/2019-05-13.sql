@@ -9,4 +9,4 @@
  */
 
 ALTER TABLE `agogui_sch`.`table_column` 
-ADD COLUMN `unique` TINYINT(1) NULL DEFAULT '0' AFTER `not_null`;
+ADD COLUMN `is_unique` TINYINT(1) NULL DEFAULT '0' AFTER `not_null`;
