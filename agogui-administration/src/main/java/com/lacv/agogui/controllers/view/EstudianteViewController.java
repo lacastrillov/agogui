@@ -47,6 +47,7 @@ public class EstudianteViewController extends ExtEntityController {
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
         view.setDefaultOrder("nombre", "ASC");
+        view.setNumColumnsForm(2);
         
         ProcessGlobalAction changeUserStatus= new ProcessGlobalAction();
         changeUserStatus.setMainProcessRef("processStudent");

@@ -47,6 +47,7 @@ public class DocenteViewController extends ExtEntityController {
         view.setMultipartFormData(false);
         view.setVisibleSeeAllButton(false);
         view.setDefaultOrder("nombre", "ASC");
+        view.setNumColumnsForm(2);
         
         view.addChildExtView("docenteAsignatura", DocenteAsignatura.class, EntityConfig.TCV_1_TO_N);
         view.addChildExtView("docenteasignaturaCurso", DocenteasignaturaCurso.class, EntityConfig.TCV_1_TO_N);

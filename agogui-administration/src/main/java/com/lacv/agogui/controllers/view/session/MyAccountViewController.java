@@ -45,6 +45,7 @@ public class MyAccountViewController extends ExtEntityController {
         view.setPathRef("myAccount");
         view.setSingularEntityTitle("Mis datos");
         view.setPluralEntityTitle("Mis datos");
+        view.setNumColumnsForm(2);
         view.setMultipartFormData(true);
         view.setPreloadedForm(true);
         view.setRestSession(true);
