@@ -29,7 +29,7 @@
                 <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
                 <jdbc.url>jdbc:mysql://localhost:3306/agogui_sch?useSSL=false</jdbc.url>
                 <jdbc.username>root</jdbc.username>
-                <jdbc.password>Experian25</jdbc.password>
+                <jdbc.password>calsatrilievlo</jdbc.password>
             </properties>
         </profile>
         <profile>

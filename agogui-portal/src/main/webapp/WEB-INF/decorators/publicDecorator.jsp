@@ -23,7 +23,7 @@
               var n = c.documentElement, t = " w-mod-";
               n.className += t + "js", ("ontouchstart"in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
           }(window, document);</script>
-        <link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <link rel="icon" type="image/icon" href="/img/favicon.png" />
         <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
         
         <!-- Placed at the end of the document so the pages load faster ============================================= -->
