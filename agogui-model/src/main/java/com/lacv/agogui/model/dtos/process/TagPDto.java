@@ -27,6 +27,9 @@ public class TagPDto {
     @TextField("Visible")
     private boolean visible;
     
+    @TypeFormField(value = FieldType.GOOGLE_MAP)
+    private String ubicacion;
+    
     
     public TagPDto(){
     }
@@ -71,6 +74,14 @@ public class TagPDto {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
     
 }
