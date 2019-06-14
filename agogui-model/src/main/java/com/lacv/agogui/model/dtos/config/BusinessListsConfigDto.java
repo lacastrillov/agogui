@@ -33,14 +33,34 @@ public class BusinessListsConfigDto {
     private List<Date> dates;
     
     @Order(4)
-    @TextField("Tamaños de Archivos")
-    //@TypeFormField(FieldType.FILE_SIZE)
-    private List<Long> fileSizes;
+    @TextField("Estados")
+    @TypeFormField(value=FieldType.MULTI_SELECT, data={"Active","Incative","Locked","Deleted"})
+    private List<String> states;
     
     @Order(5)
+    @TextField("Tamaños de Archivos")
+    @TypeFormField(FieldType.FILE_SIZE)
+    private List<Long> fileSizes;
+    
+    @Order(6)
+    @TextField("Duraciones")
+    @TypeFormField(FieldType.DURATION)
+    private List<Long> durations;
+    
+    @Order(7)
+    @TextField("Precios")
+    @TypeFormField(FieldType.PRICE)
+    private List<Long> prices;
+    
+    @Order(8)
+    @TextField("Imagenes")
+    @TypeFormField(FieldType.IMAGE_FILE_UPLOAD)
+    private List<String> images;
+    
+    @Order(9)
     @TextField("Ubicaciones")
     @TypeFormField(FieldType.GOOGLE_MAP)
-    private List<Long> locations;
+    private List<String> locations;
     
     
     public BusinessListsConfigDto(){
@@ -104,16 +124,72 @@ public class BusinessListsConfigDto {
     }
 
     /**
+     * @return the states
+     */
+    public List<String> getStates() {
+        return states;
+    }
+
+    /**
+     * @param states the states to set
+     */
+    public void setStates(List<String> states) {
+        this.states = states;
+    }
+
+    /**
+     * @return the durations
+     */
+    public List<Long> getDurations() {
+        return durations;
+    }
+
+    /**
+     * @param durations the durations to set
+     */
+    public void setDurations(List<Long> durations) {
+        this.durations = durations;
+    }
+
+    /**
+     * @return the prices
+     */
+    public List<Long> getPrices() {
+        return prices;
+    }
+
+    /**
+     * @param prices the prices to set
+     */
+    public void setPrices(List<Long> prices) {
+        this.prices = prices;
+    }
+
+    /**
+     * @return the images
+     */
+    public List<String> getImages() {
+        return images;
+    }
+
+    /**
+     * @param images the images to set
+     */
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+
+    /**
      * @return the locations
      */
-    public List<Long> getLocations() {
+    public List<String> getLocations() {
         return locations;
     }
 
     /**
      * @param locations the locations to set
      */
-    public void setLocations(List<Long> locations) {
+    public void setLocations(List<String> locations) {
         this.locations = locations;
     }
     
