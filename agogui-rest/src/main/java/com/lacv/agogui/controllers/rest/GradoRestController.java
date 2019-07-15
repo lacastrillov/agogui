@@ -37,7 +37,7 @@ public class GradoRestController extends RestEntityController {
     }
     
     @Override
-    public String saveFilePart(int slice, String fieldName, String fileName, String fileType, int fileSize, InputStream is, Object idParent){
+    public String saveFilePart(int slice, String fieldName, String fileName, String fileType, int fileSize, InputStream is, Object idParent, Boolean sessionUpload){
         return "Almacenamiento de archivo no implementado!!";
     }    
 }

@@ -43,6 +43,7 @@ public class InstitucionDto implements BaseDto {
     @NotNull
     @Size(min=1,max=1)
     @ColumnWidth(200)
+    @TypeFormField(value = FieldType.LIST, data = {"A:Primera Infancia","B:Prescolar", "C:Primaria", "D:Secundaria", "E:Universitaria"})
     @TextField("Nivel")
     private String nivel;
     
@@ -50,6 +51,18 @@ public class InstitucionDto implements BaseDto {
     @NotNull
     @Size(min=1,max=1)
     @ColumnWidth(200)
+    @TypeFormField(value = FieldType.LIST, data = {
+        "A:Persona natural",
+        "B:Empresa unipersonal",
+        "C:Sociedades por Acciones Simplificadas (S.A.S)",
+        "D:Sociedad Colectiva",
+        "E:Sociedad Anónima (S.A.)",
+        "F:Sociedad de Responsabilidad Limitada (Ltda.)",
+        "G:Sociedad en Comandita Simple (S. en C.)",
+        "H:Sociedad en Comandita por Acciones (S.C.A.)",
+        "I:Empresa Asociativa de Trabajo (E.A.T.)",
+        "J:Sociedades Agrarias de Transformación (S.A.T)"
+    })
     @TextField("Razon Social")
     private String razonSocial;
     

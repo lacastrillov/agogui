@@ -34,12 +34,12 @@
         <dependency>
             <groupId>com.lacv</groupId>
             <artifactId>jmagrexs</artifactId>
-            <version>1.2.1</version>
+            <version>1.2.2</version>
         </dependency>
         <dependency>
             <groupId>com.lacv</groupId>
             <artifactId>jmagrexs-modules</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.web</groupId>
@@ -90,7 +90,7 @@
             <properties>
                 <local.static.domain>http://localhost:8082</local.static.domain>
                 <local.static.folder.linux>/opt/apache-tomcat-9.0.8-agogui/webapps/</local.static.folder.linux>
-                <local.static.folder.windows>C:\apps\apache-tomcat-9.0.12-agogui\webapps\</local.static.folder.windows>
+                <local.static.folder.windows>C:\apps\FILES\agogui\</local.static.folder.windows>
                 <local.rootfolder>recursos/</local.rootfolder>
                 
                 <mail.host>smtp.gmail.com</mail.host>

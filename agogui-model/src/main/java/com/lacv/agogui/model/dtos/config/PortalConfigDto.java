@@ -55,10 +55,15 @@ public class PortalConfigDto {
     
     @Order(8)
     @TextField("Estado CRON")
-    @TypeFormField(value=FieldType.RADIOS, data={"OFF","ON"})
-    private String cronStatus;
+    @TypeFormField(value=FieldType.ON_OFF)
+    private Boolean cronStatus;
     
     @Order(9)
+    @TextField("Estado JOB")
+    @TypeFormField(value=FieldType.ON_OFF)
+    private Boolean jobStatus;
+    
+    @Order(10)
     @TextField("Usuario")
     @EntityCombobox(User.class)
     private Integer user;
@@ -191,15 +196,29 @@ public class PortalConfigDto {
     /**
      * @return the cronStatus
      */
-    public String getCronStatus() {
+    public Boolean getCronStatus() {
         return cronStatus;
     }
 
     /**
      * @param cronStatus the cronStatus to set
      */
-    public void setCronStatus(String cronStatus) {
+    public void setCronStatus(Boolean cronStatus) {
         this.cronStatus = cronStatus;
+    }
+    
+    /**
+     * @return the jobStatus
+     */
+    public Boolean getJobStatus() {
+        return jobStatus;
+    }
+
+    /**
+     * @param jobStatus the jobStatus to set
+     */
+    public void setJobStatus(Boolean jobStatus) {
+        this.jobStatus = jobStatus;
     }
 
     /**
