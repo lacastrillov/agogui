@@ -6,6 +6,7 @@
 package com.lacv.agogui.model.dtos;
 
 import com.lacv.jmagrexs.annotation.ColumnWidth;
+import com.lacv.jmagrexs.annotation.ImageResize;
 import com.lacv.jmagrexs.annotation.LabelField;
 import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
@@ -124,6 +125,8 @@ public class EstudianteDto implements BaseDto {
     @Order(17)
     @Size(max=100)
     @ColumnWidth(200)
+    @TypeFormField(FieldType.IMAGE_FILE_UPLOAD)
+    @ImageResize({"300,300", "500,500", "800,800"})
     @TextField("Foto")
     private String foto;
     

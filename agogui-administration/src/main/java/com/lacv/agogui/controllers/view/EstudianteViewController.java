@@ -44,8 +44,8 @@ public class EstudianteViewController extends ExtEntityController {
         EntityConfig view= new EntityConfig("estudiante", estudianteService, EstudianteDto.class);
         view.setSingularEntityTitle("Estudiante");
         view.setPluralEntityTitle("Estudiantes");
-        view.setMultipartFormData(false);
-        view.setVisibleSeeAllButton(false);
+        view.setMultipartFormData(true);
+        view.setVisibleSeeAllButton(true);
         view.setDefaultOrder("nombre", "ASC");
         view.setNumColumnsForm(2);
         
