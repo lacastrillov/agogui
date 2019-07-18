@@ -48,5 +48,10 @@ public class HomeController {
         webFileRestController.download(fileName, request, response);
     }
     
+    @RequestMapping(value = "/uf/**/{fileName}/", method = {RequestMethod.GET})
+    public void sessionDownloadPath(@PathVariable String fileName, HttpServletRequest request, HttpServletResponse response) {
+        webFileRestController.download(fileName, request, response);
+    }
+    
     
 }
