@@ -43,14 +43,14 @@ public class BusinessListsConfigDto {
     private List<Long> fileSizes;
     
     @Order(6)
-    @TextField("Duraciones")
-    @TypeFormField(FieldType.DURATION)
-    private List<Long> durations;
+    @TextField("Colores")
+    @TypeFormField(FieldType.COLOR)
+    private List<String> colors;
     
     @Order(7)
-    @TextField("Precios")
-    @TypeFormField(FieldType.PRICE)
-    private List<Long> prices;
+    @TextField("Porcentajes")
+    @TypeFormField(FieldType.PERCENTAJE)
+    private List<Long> percentajes;
     
     @Order(8)
     @TextField("Imagenes")
@@ -138,31 +138,31 @@ public class BusinessListsConfigDto {
     }
 
     /**
-     * @return the durations
+     * @return the colors
      */
-    public List<Long> getDurations() {
-        return durations;
+    public List<String> getColors() {
+        return colors;
     }
 
     /**
-     * @param durations the durations to set
+     * @param colors the colors to set
      */
-    public void setDurations(List<Long> durations) {
-        this.durations = durations;
+    public void setColors(List<String> colors) {
+        this.colors = colors;
     }
 
     /**
-     * @return the prices
+     * @return the percentajes
      */
-    public List<Long> getPrices() {
-        return prices;
+    public List<Long> getPercentajes() {
+        return percentajes;
     }
 
     /**
-     * @param prices the prices to set
+     * @param percentajes the percentajes to set
      */
-    public void setPrices(List<Long> prices) {
-        this.prices = prices;
+    public void setPercentajes(List<Long> percentajes) {
+        this.percentajes = percentajes;
     }
 
     /**
