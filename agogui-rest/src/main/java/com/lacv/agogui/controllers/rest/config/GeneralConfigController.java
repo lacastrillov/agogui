@@ -7,6 +7,7 @@
 package com.lacv.agogui.controllers.rest.config;
 
 
+import com.lacv.agogui.model.dtos.config.BusinessListsConfigDto;
 import com.lacv.agogui.model.dtos.config.PortalConfigDto;
 import com.lacv.agogui.services.config.BusinessListsConfigService;
 import com.lacv.agogui.services.config.ContactConfigService;
@@ -49,8 +50,8 @@ public class GeneralConfigController extends RestConfigurationController {
     }
     
     public String portalConfigFiles(PortalConfigDto portalConfig, String fieldName, String fileName, String fileType, int fileSize, InputStream is){
-        String path= "imagenes/generalConfig/";
-        WebFile parentWebFile= webFileService.findByPath(path);
+        String path= "imagenes/generalConfig/portalConfig/";
+        WebFile parentWebFile= webFileService.createDirectoriesIfMissing(path, null);
         
         try {
             String imageName=fileName;
@@ -58,6 +59,19 @@ public class GeneralConfigController extends RestConfigurationController {
                 imageName= "banner_" +fileName.replaceAll(" ", "_");
             }
             WebFile webFile= webFileService.createByFileData(parentWebFile, 0, imageName, fileType, fileSize, is, null);
+            
+            return webFile.getLocation();
+        } catch (Exception ex) {
+            return ex.getMessage();
+        }
+    }
+    
+    public String businessListsConfigFiles(BusinessListsConfigDto businessListsConfig, String fieldName, String fileName, String fileType, int fileSize, InputStream is){
+        String path= "imagenes/generalConfig/businessListsConfig/";
+        WebFile parentWebFile= webFileService.createDirectoriesIfMissing(path, null);
+        
+        try {
+            WebFile webFile= webFileService.createByFileData(parentWebFile, 0, fileName, fileType, fileSize, is, null);
             
             return webFile.getLocation();
         } catch (Exception ex) {

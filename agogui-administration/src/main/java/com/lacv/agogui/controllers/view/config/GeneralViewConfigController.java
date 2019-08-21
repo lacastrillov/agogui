@@ -40,6 +40,7 @@ public class GeneralViewConfigController extends ExtConfigurationObjectControlle
         view.addControlConfigurationObjectView("contactConfig", "Configuraci&oacute;n de Contacto", ContactConfigDto.class);
         view.addControlConfigurationObjectView("businessListsConfig", "Listas de Configuraci&oacute;n", BusinessListsConfigDto.class);
         view.addMultipartFormConfig("portalConfig");
+        view.addMultipartFormConfig("businessListsConfig");
         view.setVisibleSeeAllButton(true);
         
         super.addControlMapping(view);
