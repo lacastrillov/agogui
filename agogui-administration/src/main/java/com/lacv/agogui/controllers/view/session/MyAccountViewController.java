@@ -54,7 +54,7 @@ public class MyAccountViewController extends ExtEntityController {
         ProcessButton setPasswordButton= new ProcessButton();
         setPasswordButton.setMainProcessRef("processUser");
         setPasswordButton.setProcessName("createPassword");
-        setPasswordButton.setProcessTitle("Crear Password");
+        setPasswordButton.setProcessTitle("Cambiar Contrase&ntilde;a");
         setPasswordButton.addSourceByDestinationField("username", "username");
         setPasswordButton.setDtoClass(CreatePasswordDto.class);
         setPasswordButton.setIconUrl("/img/process_icons/password.png");
