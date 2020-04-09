@@ -43,6 +43,7 @@ public class PeriodoDto implements BaseDto {
     private int numero;
     
     @Order(4)
+    @NotNull
     @ColumnWidth(200)
     @TextField("Instituci&oacute;n")
     private InstitucionDto institucion;

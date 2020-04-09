@@ -34,6 +34,7 @@ public class CompetenciaRestController extends RestEntityController {
     @PostConstruct
     public void init(){
         super.addControlMapping("competencia", competenciaService, competenciaMapper);
+        super.setEnableOperationLog(true);
     }
     
     @Override

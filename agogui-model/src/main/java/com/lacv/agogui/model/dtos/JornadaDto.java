@@ -7,6 +7,7 @@ package com.lacv.agogui.model.dtos;
 
 import com.lacv.jmagrexs.annotation.ColumnWidth;
 import com.lacv.jmagrexs.annotation.LabelField;
+import com.lacv.jmagrexs.annotation.NotNull;
 import com.lacv.jmagrexs.annotation.Order;
 import com.lacv.jmagrexs.annotation.ReadOnly;
 import com.lacv.jmagrexs.annotation.Size;
@@ -36,6 +37,7 @@ public class JornadaDto implements BaseDto {
     private String nombre;
     
     @Order(3)
+    @NotNull
     @ColumnWidth(200)
     @TextField("Instituci&oacute;n")
     private InstitucionDto institucion;
